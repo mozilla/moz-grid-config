@@ -1,99 +1,52 @@
 <project name="selenium-grid" default="launch-selenium-rc" basedir=".">
 
-
-
   <property file="${basedir}/project.properties"/>
-
 
   <path id="remote-control.classpath">
     <fileset dir="${basedir}/vendor">
-
       <include name="selenium-server-standalone-${rc.version}.jar"/>
     </fileset>
-
     <!-- Selenium Server must be first in classpath -->
-
     <fileset dir="${basedir}/lib">
-
       <include name="selenium-grid-remote-control-standalone-${grid.version}.jar"/>
-
     </fileset>
-
     <pathelement path="${java.class.path}/"/>
-
   </path>
-
-
 
   <path id="hub.classpath">
-
     <pathelement path="${basedir}/"/>
-
     <fileset dir="${basedir}/lib">
-
       <include name="selenium-grid-hub-standalone-${grid.version}.jar"/>
-
     </fileset>
-
     <pathelement path="${java.class.path}/"/>
-
   </path>
 
-  <target name="launch-hub" description="Launch Selenium Hub">
-
+  <target name="launch-hub" description="Launch Selenium Hub">
     <java classname="com.thoughtworks.selenium.grid.hub.HubServer"
-
           classpathref="hub.classpath"
-
           fork="true"
-
           failonerror="true" />
-
-
   </target>
-
 
   <target name="launch-remote-control" description="Launch A Remote Control">
-
     <java classpathref="remote-control.classpath"
-
           classname="com.thoughtworks.selenium.grid.remotecontrol.SelfRegisteringRemoteControlLauncher"
-
           fork="true"
-
           failonerror="true">
-
-
-
       <arg value="-port"/>
-
       <arg value="${rc.port}"/>
-
       <arg value="-host"/>
-
       <arg value="${rc.host}"/>
-
       <arg value="-hubURL"/>
-
       <arg value="http://${hub.host}:${hub.port}"/>
-
       <arg value="-env"/>
-
       <arg value="${rc.environment}"/>
-
       <arg value="-firefoxProfileTemplate"/>
-
       <arg value="${basedir}${file.separator}firefoxprofiles${file.separator}${custom.firefox.profile}"/>
-
       <arg value="-hubPollerIntervalInSeconds"/>
-
       <arg value="30"/>
-
       <arg line="${rc.arguments}"/>
-
     </java>
-
   </target>
-
 
 </project>
