@@ -83,7 +83,7 @@
 
       <arg value="-firefoxProfileTemplate"/>
 
-      <arg value="${basedir}\firefoxprofiles\${custom.firefox.profile}"/>
+      <arg value="${basedir}${file.separator}firefoxprofiles${file.separator}${custom.firefox.profile}"/>
 
       <arg value="-hubPollerIntervalInSeconds"/>
 
