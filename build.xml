@@ -1,5 +1,9 @@
 <project name="selenium-grid" default="launch-selenium-rc" basedir=".">
 
+  <property environment="env"/>
+  <property name="env.HOSTNAME" value="${env.COMPUTERNAME}"/> <!-- Windows vs. Linux -->
+
+  <property file="${basedir}/${env.HOSTNAME}.project.properties" />
   <property file="${basedir}/project.properties"/>
 
   <path id="remote-control.classpath">
@@ -20,6 +24,11 @@
     </fileset>
     <pathelement path="${java.class.path}/"/>
   </path>
+
+  <!-- Debug target to show variables -->
+  <target name="debug">
+    <echoproperties/>
+  </target>
 
   <target name="launch-hub" description="Launch Selenium Hub">
     <java classname="com.thoughtworks.selenium.grid.hub.HubServer"
