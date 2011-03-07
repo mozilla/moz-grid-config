@@ -1,6 +1,7 @@
 <project name="selenium-grid" default="launch-selenium-rc" basedir=".">
 
   <property environment="env"/>
+  <exec executable="hostname" osfamily="unix" failifexecutionfails="false" outputproperty="env.COMPUTERNAME"/>
   <property name="env.HOSTNAME" value="${env.COMPUTERNAME}"/> <!-- Windows vs. Linux -->
 
   <property file="${basedir}/${env.HOSTNAME}.project.properties" />
