@@ -38,7 +38,19 @@
           failonerror="true" />
   </target>
 
-  <target name="launch-remote-control" description="Launch A Remote Control">
+  <target name="launch-remote-control"
+          description="Launch A Remote Control"
+          depends="launch-remote-control-with-custom-profile, launch-remote-control-without-custom-profile"/>
+
+  <target name="check-for-custom-profile">
+    <condition property="use.custom.profile">
+      <not>
+        <equals arg1="${custom.firefox.profile}" arg2="" />
+      </not>
+    </condition>
+  </target>
+
+  <target name="launch-remote-control-with-custom-profile" depends="check-for-custom-profile" if="use.custom.profile">
     <java classpathref="remote-control.classpath"
           classname="com.thoughtworks.selenium.grid.remotecontrol.SelfRegisteringRemoteControlLauncher"
           fork="true"
@@ -53,6 +65,25 @@
       <arg value="${rc.environment}"/>
       <arg value="-firefoxProfileTemplate"/>
       <arg value="${basedir}${file.separator}firefoxprofiles${file.separator}${custom.firefox.profile}"/>
+      <arg value="-hubPollerIntervalInSeconds"/>
+      <arg value="30"/>
+      <arg line="${rc.arguments}"/>
+    </java>
+  </target>
+
+  <target name="launch-remote-control-without-custom-profile" depends="check-for-custom-profile" unless="use.custom.profile">
+    <java classpathref="remote-control.classpath"
+          classname="com.thoughtworks.selenium.grid.remotecontrol.SelfRegisteringRemoteControlLauncher"
+          fork="true"
+          failonerror="true">
+      <arg value="-port"/>
+      <arg value="${rc.port}"/>
+      <arg value="-host"/>
+      <arg value="${rc.host}"/>
+      <arg value="-hubURL"/>
+      <arg value="http://${hub.host}:${hub.port}"/>
+      <arg value="-env"/>
+      <arg value="${rc.environment}"/>
       <arg value="-hubPollerIntervalInSeconds"/>
       <arg value="30"/>
       <arg line="${rc.arguments}"/>
