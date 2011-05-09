@@ -34,30 +34,36 @@ Properties
 Below are the properties that can be configured:
 
 **grid.version**
+
 The version number of Selenium Grid to use. This is used to locate the library,
 for example a value of `1.0.8` will load the library
 `lib/selenium-grid-remote-control-standalone-1.0.8.jar`
 
 **hub.host**
+
 The host that Selenium Grid's hub is running on. This is used for any launching
 Selenium RC servers to register with the hub.
 
 **hub.port**
+
 The port that Selenium Grid's hub is running on. Also used when Selenium RC
 servers are registering with the hub.
 
 **rc.version**
+
 The version of Selenium server to use. Thhis is used to locate the library, for
 example a value of `2.0b3` will load the library
 `vendor/selenium-grid-hub-standalone-2.0b3.jar`
 
 **rc.host**
+
 The host of the Selenium RC that you want to register with the Selenium Grid
 hub. This is needed so that Selenium Grid can communicate back to the server.
 This property should not be set in `project.properties` because it will differ
 for each machine. It's best placed in the `<HOSTNAME>.project.properties` file.
 
 **rc.port**
+
 The port of the Selenium RC that you want to register with the Selenium Grid
 hub. Along with the host, this is needed so that Selenium Grid can communicate
 back to the server. This property should not be set in `project.properties`
@@ -68,6 +74,7 @@ command line. See the section on **Launching a Selenium RC server** below for
 details.
 
 **rc.environment**
+
 The environment to register the launching Selenium RC with in the Selenium Grid
 hub. This property should not be set in `project.properties` because it will
 differ for each machine, and it should also not be set in
@@ -77,11 +84,13 @@ to set this property is via the command line. See the section on **Launching a
 Selenium RC server** below for details.
 
 **rc.arguments**
+
 Any additional arguments to pass to Selenium RC server when it's launched. For
 example, *-singleWindow* would launch the Selenium and the application under
 test in the same window using frames.
 
 **custom.firefox.profile**
+
 The path of a custom Firefox profile to use. If this property is specified but
 the value is empty then Selenium will not provide the *-firefoxProfileTemplate*
 command line argument and a fresh profile will be generated. Note that the
