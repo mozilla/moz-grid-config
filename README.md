@@ -11,8 +11,8 @@ Prerequisites
   1. [Java Runtime Environment]
   2. [ANT]
 
-[Java Runtime Environment] http://www.oracle.com/technetwork/java/javase/downloads/index.html
-[ANT] http://ant.apache.org/
+[Java Runtime Environment]: http://www.oracle.com/technetwork/java/javase/downloads/index.html
+[ANT]: http://ant.apache.org/
 
 Configuration
 -------------
