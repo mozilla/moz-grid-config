@@ -56,6 +56,7 @@
   </target>
 
   <target name="launch-remote-control-with-custom-profile" depends="check-for-custom-profile" if="use.custom.profile">
+    <fail unless="rc.host" message="Property rc.host must be set in ${env.HOSTNAME}.project.properties" /> 
     <java classpathref="remote-control.classpath"
           classname="com.thoughtworks.selenium.grid.remotecontrol.SelfRegisteringRemoteControlLauncher"
           fork="true"
