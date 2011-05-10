@@ -7,21 +7,21 @@
   <property file="${basedir}/${env.HOSTNAME}.project.properties" />
   <property file="${basedir}/project.properties"/>
 
-  <path id="remote-control.classpath">
-    <fileset dir="${basedir}/vendor">
-      <include name="selenium-server-standalone-${rc.version}.jar"/>
-    </fileset>
-    <!-- Selenium Server must be first in classpath -->
+  <path id="hub.classpath">
+    <pathelement path="${basedir}/"/>
     <fileset dir="${basedir}/lib">
-      <include name="selenium-grid-remote-control-standalone-${grid.version}.jar"/>
+      <include name="selenium-server-standalone-${selenium.version}.jar"/>
     </fileset>
     <pathelement path="${java.class.path}/"/>
   </path>
 
-  <path id="hub.classpath">
-    <pathelement path="${basedir}/"/>
+  <path id="remote-control.classpath">
     <fileset dir="${basedir}/lib">
-      <include name="selenium-grid-hub-standalone-${grid.version}.jar"/>
+      <include name="selenium-server-standalone-2.0b3.jar"/>
+    </fileset>
+    <!-- Selenium Server must be first in classpath -->
+    <fileset dir="${basedir}/lib">
+      <include name="selenium-grid-remote-control-standalone-1.0.8.jar"/>
     </fileset>
     <pathelement path="${java.class.path}/"/>
   </path>
@@ -32,10 +32,15 @@
   </target>
 
   <target name="launch-hub" description="Launch Selenium Hub">
-    <java classname="com.thoughtworks.selenium.grid.hub.HubServer"
+    <java classname="org.openqa.grid.selenium.GridLauncher"
           classpathref="hub.classpath"
           fork="true"
-          failonerror="true" />
+          failonerror="true">
+      <arg value="-role"/>
+      <arg value="hub"/>
+      <arg value="-port"/>
+      <arg value="${hub.port}"/>
+    </java>
   </target>
 
   <target name="launch-remote-control"
