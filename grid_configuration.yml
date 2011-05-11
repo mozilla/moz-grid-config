@@ -1,5 +1,4 @@
 hub:
-   port: 4444
    environments:
        - name: "Firefox 3.6 on Mac OS X"
          browser: "*firefox /Applications/Firefox 3.6.app/Contents/MacOS/firefox-bin"
