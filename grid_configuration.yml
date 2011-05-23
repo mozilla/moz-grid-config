@@ -5,6 +5,8 @@ hub:
          browser: "*chrome"
        - name: "Firefox4b;en-us;MacOSX6"
          browser: "*firefox /Applications/Firefox4b.app/Contents/MacOS/firefox-bin"
+       - name: "Firefox Beta on Mac OS X"
+         browser: "*firefox /Applications/Firefox Beta.app/Contents/MacOS/firefox-bin"
        - name: "IE-8;en-us;Win7-second"
          browser: "*iexplore"
        - name: "IE-8;en-us;Win7"
