@@ -4,6 +4,8 @@ hub:
          browser: "*firefox /Applications/Firefox 3.6.app/Contents/MacOS/firefox-bin"
        - name: "Firefox 4 on Mac OS X"
          browser: "*firefox /Applications/Firefox 4.app/Contents/MacOS/firefox-bin"
+       - name: "Firefox Beta on Mac OS X"
+         browser: "*firefox /Applications/Firefox Beta.app/Contents/MacOS/firefox-bin"
        - name: "Firefox 3.6 on Windows 7"
          browser: "*firefox C:/Program Files/Mozilla Firefox 3.6/firefox.exe"
        - name: "Firefox 4 on Windows 7"
