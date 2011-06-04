@@ -74,20 +74,17 @@ specified in `project.properties`.
 **webdriver.browsers**
 
 The browsers that a WebDriver node will make available. This is in the format of
-`-browser browserName="<BROWSER>",version=<VERSION>,firefox_binary=<PATH>,
-platform=<PLATFORM>,maxInstances=<MAX_INSTANCES>` where `<BROWSER>` is
-`firefox`, `internet explorer`, `safari`, or `chrome`, `<VERSION>` is the
-version of the browser to make available, `<PATH>` is the location of the
-Firefox binary, `<PLATFORM>` is `mac`, `windows`, or `linux`, and
-`<MAX_INSTANCES>` is the maximum number of instances of that environment that
-should be launched. To support multiple browsers simply repeat the parameters.
+`-browser browserName=<BROWSER>,version=<VERSION>,firefox_binary=<PATH>,platform=<PLATFORM>,maxInstances=<MAX_INSTANCES>`
+where `<BROWSER>` is `firefox`, `internet explorer`, `safari`, or `chrome`,
+`<VERSION>` is the version of the browser to make available, `<PATH>` is the
+location of the Firefox binary, `<PLATFORM>` is `mac`, `windows`, or `linux`,
+and `<MAX_INSTANCES>` is the maximum number of instances of that environment
+that should be launched. To support multiple browsers simply repeat the
+parameters.
 
 Example:
-    webdriver.browsers=-browser browserName=firefox,version=3.6,
-    firefox_binary="/Applications/Firefox 3.6.app/Content/MacOS/firefox-bin",
-    platform=mac,maxInstances=5 -browser browserName=firefox,version=4.0,
-    firefox_binary="/Applications/Firefox 4.0.app/Content/MacOS/firefox-bin",
-    platform=mac,maxInstances=5
+
+    webdriver.browsers=-browser browserName=firefox,version=3.6,firefox_binary="/Applications/Firefox 3.6.app/Content/MacOS/firefox-bin",platform=mac,maxInstances=5 -browser browserName=firefox,version=4.0,firefox_binary="/Applications/Firefox 4.0.app/Content/MacOS/firefox-bin",platform=mac,maxInstances=5
 
 This property should not be set in `project.properties` because it will differ
 for each host. It's best placed in the `<HOSTNAME>.project.properties` file. 
@@ -107,8 +104,8 @@ The browsers that an RC node will make available. This is in the format of
 should be launched. To support multiple browsers simply repeat the parameters.
 
 Example:
-    rc.browsers=-browser browserName="Firefox 3.6 on Mac OS X",maxInstances=5
-    -browser browserName='Firefox 4.0 on Mac OS X',maxInstances=5
+
+    rc.browsers=-browser browserName="Firefox 3.6 on Mac OS X",maxInstances=5 -browser browserName='Firefox 4.0 on Mac OS X',maxInstances=5
 
 This property should not be set in `project.properties` because it will differ
 for each host. It's best placed in the `<HOSTNAME>.project.properties` file. 
