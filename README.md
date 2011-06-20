@@ -33,59 +33,65 @@ Properties
 
 Below are the properties that can be configured:
 
-**grid.version**
+**selenium.version**
 
-The version number of Selenium Grid to use. This is used to locate the library,
-for example a value of `1.0.8` will load the library
-`lib/selenium-grid-remote-control-standalone-1.0.8.jar`
+The version number of Selenium to use. This is used to locate the library,
+for example a value of `2.0rc2` will load the library
+`lib/selenium-server-standalone-2.0rc2.jar`
 
 **hub.host**
 
-The host that Selenium Grid's hub is running on. This is used for any launching
-Selenium RC servers to register with the hub.
+The host that the hub is running on. This is used when registering nodes with
+the hub.
 
 **hub.port**
 
-The port that Selenium Grid's hub is running on. Also used when Selenium RC
-servers are registering with the hub.
+The port that the hub is running on. Also used when registering nodes with the
+hub.
 
-**rc.version**
+**node.host**
 
-The version of Selenium server to use. Thhis is used to locate the library, for
-example a value of `2.0b3` will load the library
-`vendor/selenium-grid-hub-standalone-2.0b3.jar`
+The host of the node that you want to register with the hub. This is
+needed so that the hub can communicate back to the node. This property should
+not be set in `project.properties` because it will differ for each host. It's
+best placed in the `<HOSTNAME>.project.properties` file.
 
-**rc.host**
+**node.port**
 
-The host of the Selenium RC that you want to register with the Selenium Grid
-hub. This is needed so that Selenium Grid can communicate back to the server.
-This property should not be set in `project.properties` because it will differ
-for each machine. It's best placed in the `<HOSTNAME>.project.properties` file.
-
-**rc.port**
-
-The port of the Selenium RC that you want to register with the Selenium Grid
-hub. Along with the host, this is needed so that Selenium Grid can communicate
-back to the server. This property should not be set in `project.properties`
-because it will differ for each machine, and it should also not be set in
-`<HOSTNAME>.project.properties` file as you are likely to want to invoke
-multiple servers on each machine. The best way to set this property is via the
-command line. See the section on **Launching a Selenium RC server** below for
+The port of the node that you want to register with the hub. Along with the
+host, this is needed so that the hub can communicate back to the node. A default
+port is specified in `project.properties`, however if you intend to register
+more than one node from one host then you will need to set this property via the
+command line. See the section on **Launching a Selenium RC node** below for
 details.
 
-**rc.environment**
+**node.timeout**
 
-The environment to register the launching Selenium RC with in the Selenium Grid
-hub. This property should not be set in `project.properties` because it will
-differ for each machine, and it should also not be set in
-`<HOSTNAME>.project.properties` file as you are likely to want to invoke
-multiple servers on each machine with different environment names. The best way
-to set this property is via the command line. See the section on **Launching a
-Selenium RC server** below for details.
+If there is no communication from the node before this timeout (in seconds) then
+the session will be dropped.
+
+**node.max.concurrent**
+
+The maximum number of browsers to launch on the node at any one time.
+
+**rc.browsers**
+
+The browsers that an RC node will make available. This is in the format of
+`-browser browserName="<ENVIRONMENT>",maxInstances=<MAX_INSTANCES>` where
+`<ENVIRONMENT>` is a valid environment as listed in `grid_configuration.yml` and
+`<MAX_INSTANCES>` is the maximum number of instances of that environment that
+should be launched. To support multiple browsers simply repeat the parameters.
+
+Example:
+    rc.browsers=-browser browserName="Firefox 3.6 on Mac OS X",maxInstances=5
+    -browser browserName='Firefox 4.0 on Mac OS X',maxInstances=5
+
+This property should not be set in `project.properties` because it will differ
+for each host. . It's best placed in the `<HOSTNAME>.project.properties` file. 
 
 **rc.arguments**
 
-Any additional arguments to pass to Selenium RC server when it's launched. For
+Any additional arguments to pass to an RC node when it's launched. For
 example, *-singleWindow* would launch the Selenium and the application under
 test in the same window using frames.
 
@@ -97,25 +103,24 @@ command line argument and a fresh profile will be generated. Note that the
 Firefox profile needs to be located in `firefoxprofiles` directory, and the
 value of this property is the relative path within `firefoxprofiles`.
 
-Launching a Selenium Grid hub
------------------------------
+Launching a Selenium hub
+------------------------
 
 Run the following command from the project's location:
 
     ant launch-hub
 
-Launching a Selenium RC server
-------------------------------
+Launching a Selenium RC node
+----------------------------
 
 Run the following command from the project's location:
 
-    ant launch-remote-control -Drc.port=<PORT> -Drc.environment=<ENVIRONMENT>
+    ant launch-remote-control
 
-Where `<PORT>` is the port you want to run the Selenium RC server on, and
-`<ENVIRONMENT>` is the name of the environment you want to register with
-Selenium Grid's hub.
+Specifying properties on the command line
+-----------------------------------------
 
-If you have not specified a value for `rc.host` in your
-`<HOSTNAME>.project.properties` file then you can also specify this on the
-command line by appending `-Drc.host=<HOST>` where `<HOST>` is the host of the
-machine.
+You can override any of the properties from `project.properties` or
+`<HOSTNAME>.project.properties` on the command line by passing them in the
+format `-D<PROPERTY>=<VALUE>`. For example, to specify an alternate port for the
+hub you would use `ant launch-hub -Dhub.port=4445`
