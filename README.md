@@ -52,18 +52,9 @@ hub.
 **node.host**
 
 The host of the node that you want to register with the hub. This is
-needed so that the hub can communicate back to the node. This property should
+needed so that the hub can communicate back to an RC node. This property should
 not be set in `project.properties` because it will differ for each host. It's
 best placed in the `<HOSTNAME>.project.properties` file.
-
-**node.port**
-
-The port of the node that you want to register with the hub. Along with the
-host, this is needed so that the hub can communicate back to the node. A default
-port is specified in `project.properties`, however if you intend to register
-more than one node from one host then you will need to set this property via the
-command line. See the section on **Launching a Selenium RC node** below for
-details.
 
 **node.timeout**
 
@@ -74,6 +65,36 @@ the session will be dropped.
 
 The maximum number of browsers to launch on the node at any one time.
 
+**webdriver.port**
+
+The port of the WebDriver node that you want to register with the hub. This is
+needed so that the hub can communicate back to the node. A default port is
+specified in `project.properties`.
+
+**webdriver.browsers**
+
+The browsers that a WebDriver node will make available. This is in the format of
+`-browser browserName=<BROWSER>,version=<VERSION>,firefox_binary=<PATH>,platform=<PLATFORM>,maxInstances=<MAX_INSTANCES>`
+where `<BROWSER>` is `firefox`, `internet explorer`, `safari`, or `chrome`,
+`<VERSION>` is the version of the browser to make available, `<PATH>` is the
+location of the Firefox binary, `<PLATFORM>` is `mac`, `windows`, or `linux`,
+and `<MAX_INSTANCES>` is the maximum number of instances of that environment
+that should be launched. To support multiple browsers simply repeat the
+parameters.
+
+Example:
+
+    webdriver.browsers=-browser browserName=firefox,version=3.6,firefox_binary="/Applications/Firefox 3.6.app/Content/MacOS/firefox-bin",platform=mac,maxInstances=5 -browser browserName=firefox,version=4.0,firefox_binary="/Applications/Firefox 4.0.app/Content/MacOS/firefox-bin",platform=mac,maxInstances=5
+
+This property should not be set in `project.properties` because it will differ
+for each host. It's best placed in the `<HOSTNAME>.project.properties` file. 
+
+**rc.port**
+
+The port of the RC node that you want to register with the hub. This is needed
+so that the hub can communicate back to the node. A default port is specified in
+`project.properties`.
+
 **rc.browsers**
 
 The browsers that an RC node will make available. This is in the format of
@@ -83,11 +104,11 @@ The browsers that an RC node will make available. This is in the format of
 should be launched. To support multiple browsers simply repeat the parameters.
 
 Example:
-    rc.browsers=-browser browserName="Firefox 3.6 on Mac OS X",maxInstances=5
-    -browser browserName='Firefox 4.0 on Mac OS X',maxInstances=5
+
+    rc.browsers=-browser browserName="Firefox 3.6 on Mac OS X",maxInstances=5 -browser browserName='Firefox 4.0 on Mac OS X',maxInstances=5
 
 This property should not be set in `project.properties` because it will differ
-for each host. . It's best placed in the `<HOSTNAME>.project.properties` file. 
+for each host. It's best placed in the `<HOSTNAME>.project.properties` file. 
 
 **rc.arguments**
 
@@ -109,6 +130,13 @@ Launching a Selenium hub
 Run the following command from the project's location:
 
     ant launch-hub
+
+Launching a Selenium WebDriver node
+-----------------------------------
+
+Run the following command from the project's location:
+
+    ant launch-webdriver
 
 Launching a Selenium RC node
 ----------------------------
