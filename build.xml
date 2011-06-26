@@ -1,4 +1,4 @@
-<project name="selenium-grid" default="launch-selenium-rc" basedir=".">
+<project name="selenium-grid" default="launch-remote-control" basedir=".">
 
   <property environment="env"/>
   <exec executable="hostname" osfamily="unix" failifexecutionfails="false" outputproperty="env.COMPUTERNAME"/>
