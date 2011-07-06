@@ -1,0 +1,39 @@
+{
+    "capabilities":
+        [
+            {
+                "browserName": "firefox",
+                "version": "3.6",
+                "firefox_binary": "/Applications/Firefox 3.6.app/Contents/MacOS/firefox-bin",
+                "platform": "MAC",
+                "maxInstances": 5
+            }, {
+                "browserName": "firefox",
+                "version": "4",
+                "firefox_binary": "/Applications/Firefox 4.app/Contents/MacOS/firefox-bin",
+                "platform": "MAC",
+                "maxInstances": 5
+            }, {
+                "browserName": "firefox",
+                "version": "beta",
+                "firefox_binary": "/Applications/Firefox Beta.app/Contents/MacOS/firefox-bin",
+                "platform": "MAC",
+                "maxInstances": 5
+            }, {
+                "browserName": "firefox",
+                "version": "aurora",
+                "firefox_binary": "/Applications/Aurora.app/Contents/MacOS/firefox-bin",
+                "platform": "MAC",
+                "maxInstances": 5
+            }, {
+                "browserName": "firefox",
+                "version": "nightly",
+                "firefox_binary": "/Applications/Nightly.app/Contents/MacOS/firefox-bin",
+                "platform": "MAC",
+                "maxInstances": 5
+            }
+        ],
+    "configuration": {
+        "timeout": 180000
+    }
+}
