@@ -15,6 +15,12 @@
                 "maxInstances": 5
             }, {
                 "browserName": "firefox",
+                "version": "5",
+                "firefox_binary": "/Applications/Firefox 5.app/Contents/MacOS/firefox-bin",
+                "platform": "MAC",
+                "maxInstances": 5
+            }, {
+                "browserName": "firefox",
                 "version": "beta",
                 "firefox_binary": "/Applications/Firefox Beta.app/Contents/MacOS/firefox-bin",
                 "platform": "MAC",
