@@ -1,0 +1,24 @@
+{
+    "capabilities":
+        [
+            {
+                "browserName": "Firefox 3.6 on Mac OS X",
+                "maxInstances": 5
+            }, {
+                "browserName": "Firefox 4 on Mac OS X",
+                "maxInstances": 5
+            }, {
+                "browserName": "Firefox Beta on Mac OS X",
+                "maxInstances": 5
+            }, {
+                "browserName": "Firefox Aurora on Mac OS X",
+                "maxInstances": 5
+            }, {
+                "browserName": "Firefox Nightly on Mac OS X",
+                "maxInstances": 5
+            }
+        ],
+    "configuration": {
+        "timeout": 180000
+    }
+}

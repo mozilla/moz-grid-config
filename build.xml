@@ -4,8 +4,8 @@
   <exec executable="hostname" osfamily="unix" failifexecutionfails="false" outputproperty="env.COMPUTERNAME"/>
   <property name="env.HOSTNAME" value="${env.COMPUTERNAME}"/> <!-- Windows vs. Linux -->
 
-  <property file="${basedir}/${env.HOSTNAME}.project.properties" />
-  <property file="${basedir}/project.properties"/>
+  <property file="${basedir}/${env.HOSTNAME}.properties" />
+  <property file="${basedir}/default.properties"/>
 
   <path id="selenium.classpath">
     <pathelement path="${basedir}/"/>
@@ -27,19 +27,30 @@
           failonerror="true">
       <arg value="-role"/>
       <arg value="hub"/>
-      <arg value="-port"/>
-      <arg value="${hub.port}"/>
+      <arg value="-grid1Yml"/>
+      <arg value="grid_configuration.yml"/>
+      <arg value="-hubConfig"/>
+      <arg value="hub_configuration.json"/>
+    </java>
+  </target>
+
+  <target name="launch-webdriver">
+    <java classpathref="selenium.classpath"
+          classname="org.openqa.grid.selenium.GridLauncher"
+          fork="true"
+          failonerror="true">
+      <arg value="-role"/>
+      <arg value="webdriver"/>
+      <arg value="-hub"/>
+      <arg value="http://${hub.host}:${hub.port}/grid/register"/>
+      <arg value="-nodeConfig"/>
+      <arg value="${node.configuration.file}"/>
     </java>
   </target>
 
   <target name="launch-remote-control"
           description="Launch A Remote Control"
-          depends="check-remote-control-properties, launch-remote-control-with-custom-profile, launch-remote-control-without-custom-profile"/>
-
-  <target name="check-remote-control-properties">
-    <fail unless="rc.host" message="Property rc.host must be set in ${env.HOSTNAME}.project.properties" /> 
-    <fail unless="rc.browsers" message="Property rc.browsers must be set in ${env.HOSTNAME}.project.properties" /> 
-  </target>
+          depends="launch-remote-control-with-custom-profile, launch-remote-control-without-custom-profile"/>
 
   <target name="check-for-custom-profile">
     <condition property="use.custom.profile">
@@ -56,17 +67,10 @@
           failonerror="true">
       <arg value="-role"/>
       <arg value="rc"/>
-      <arg value="-port"/>
-      <arg value="${rc.port}"/>
-      <arg value="-host"/>
-      <arg value="${rc.host}"/>
       <arg value="-hub"/>
       <arg value="http://${hub.host}:${hub.port}/grid/register"/>
-      <arg value="-nodeTimeout"/>
-      <arg value="${node.timeout}"/>
-      <arg value="-maxConcurrent"/>
-      <arg value="${node.max.concurrent}"/>
-      <arg line="${rc.browsers}"/>
+      <arg value="-nodeConfig"/>
+      <arg value="${node.configuration.file}"/>
       <arg value="-firefoxProfileTemplate"/>
       <arg value="${basedir}${file.separator}firefoxprofiles${file.separator}${custom.firefox.profile}"/>
       <arg line="${rc.arguments}"/>
@@ -80,17 +84,10 @@
           failonerror="true">
       <arg value="-role"/>
       <arg value="rc"/>
-      <arg value="-port"/>
-      <arg value="${rc.port}"/>
-      <arg value="-host"/>
-      <arg value="${rc.host}"/>
       <arg value="-hub"/>
       <arg value="http://${hub.host}:${hub.port}/grid/register"/>
-      <arg value="-nodeTimeout"/>
-      <arg value="${node.timeout}"/>
-      <arg value="-maxConcurrent"/>
-      <arg value="${node.max.concurrent}"/>
-      <arg line="${rc.browsers}"/>
+      <arg value="-nodeConfig"/>
+      <arg value="${node.configuration.file}"/>
       <arg line="${rc.arguments}"/>
     </java>
   </target>
