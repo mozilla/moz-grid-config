@@ -43,6 +43,8 @@
       <arg value="webdriver"/>
       <arg value="-hub"/>
       <arg value="http://${hub.host}:${hub.port}/grid/register"/>
+      <arg value="-host"/>
+      <arg value="${node.host}"/>
       <arg value="-nodeConfig"/>
       <arg value="${node.configuration.file}"/>
     </java>
@@ -69,6 +71,8 @@
       <arg value="rc"/>
       <arg value="-hub"/>
       <arg value="http://${hub.host}:${hub.port}/grid/register"/>
+      <arg value="-host"/>
+      <arg value="${node.host}"/>
       <arg value="-nodeConfig"/>
       <arg value="${node.configuration.file}"/>
       <arg value="-firefoxProfileTemplate"/>
@@ -86,6 +90,8 @@
       <arg value="rc"/>
       <arg value="-hub"/>
       <arg value="http://${hub.host}:${hub.port}/grid/register"/>
+      <arg value="-host"/>
+      <arg value="${node.host}"/>
       <arg value="-nodeConfig"/>
       <arg value="${node.configuration.file}"/>
       <arg line="${rc.arguments}"/>
