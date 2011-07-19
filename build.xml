@@ -31,8 +31,6 @@
       <arg value="grid_configuration.yml"/>
       <arg value="-hubConfig"/>
       <arg value="hub_configuration.json"/>
-      <arg value="-log"/>
-      <arg value="hub.log"/>
     </java>
   </target>
 
