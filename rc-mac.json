@@ -11,6 +11,9 @@
                 "browserName": "Firefox 5 on Mac OS X",
                 "maxInstances": 5
             }, {
+                "browserName": "Firefox 6 on Mac OS X",
+                "maxInstances": 5
+            }, {
                 "browserName": "Firefox Beta on Mac OS X",
                 "maxInstances": 5
             }, {

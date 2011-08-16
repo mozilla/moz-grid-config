@@ -21,6 +21,12 @@
                 "maxInstances": 5
             }, {
                 "browserName": "firefox",
+                "version": "6",
+                "firefox_binary": "C:/Program Files/Mozilla Firefox 6/firefox.exe",
+                "platform": "WINDOWS",
+                "maxInstances": 5
+            }, {
+                "browserName": "firefox",
                 "version": "beta",
                 "firefox_binary": "C:/Program Files/Mozilla Firefox Beta/firefox.exe",
                 "platform": "WINDOWS",

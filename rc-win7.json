@@ -11,6 +11,9 @@
                 "browserName": "Firefox 5 on Windows 7",
                 "maxInstances": 5
             }, {
+                "browserName": "Firefox 6 on Windows 7",
+                "maxInstances": 5
+            }, {
                 "browserName": "Firefox Beta on Windows 7",
                 "maxInstances": 5
             }, {
