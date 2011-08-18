@@ -19,6 +19,8 @@ hub:
          browser: "*firefox C:/Program Files/Mozilla Firefox 5/firefox.exe"
        - name: "Firefox 6 on Windows 7"
          browser: "*firefox C:/Program Files/Mozilla Firefox 6/firefox.exe"
+       - name: "Firefox Beta on Windows 7"
+         browser: "*firefox C:/Program Files/Mozilla Firefox Beta/firefox.exe"
        - name: "Internet Explorer 8 on Windows 7"
          browser: "*iexplore"
        - name: "Internet Explorer 9 on Windows 7"
