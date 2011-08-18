@@ -59,19 +59,19 @@ example a value of `2.0b3` will load the library
 
 The host of the Selenium RC that you want to register with the Selenium Grid
 hub. This is needed so that Selenium Grid can communicate back to the server.
-This property should not be set in `project.properties` because it will differ
-for each machine. It's best placed in the `<HOSTNAME>.project.properties` file.
+This defaults to `localhost`, which is fine if the server is on the same machine
+as the Selenium Grid hub. If these are on different machines then this property
+is best set in `<HOSTNAME>.project.properties` file or on the command line. See
+the section on **Launching a Selenium RC server** below for details.
 
 **rc.port**
 
 The port of the Selenium RC that you want to register with the Selenium Grid
 hub. Along with the host, this is needed so that Selenium Grid can communicate
-back to the server. This property should not be set in `project.properties`
-because it will differ for each machine, and it should also not be set in
-`<HOSTNAME>.project.properties` file as you are likely to want to invoke
-multiple servers on each machine. The best way to set this property is via the
-command line. See the section on **Launching a Selenium RC server** below for
-details.
+back to the server. This defaults to `5555`, which is fine for the first server
+on a machine, but any subsequent servers need a different port to be specified
+via the command line. See the section on **Launching a Selenium RC server**
+below for details.
 
 **rc.environment**
 
