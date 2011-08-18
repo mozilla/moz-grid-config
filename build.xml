@@ -51,7 +51,9 @@
   </target>
 
   <target name="launch-remote-control-with-custom-profile" depends="check-for-custom-profile" if="use.custom.profile">
-    <fail unless="rc.host" message="Property rc.host must be set in ${env.HOSTNAME}.project.properties" /> 
+    <fail unless="rc.host" message="Property rc.host must be set in ${env.HOSTNAME}.project.properties" />
+    <fail unless="rc.port" message="Property rc.port must be set in ${env.HOSTNAME}.project.properties" />
+    <fail unless="rc.environment" message="Property rc.environment must be set on the command line. Example: -Drc.environment='Firefox Beta on Mac OS X'" /> 
     <java classpathref="remote-control.classpath"
           classname="com.thoughtworks.selenium.grid.remotecontrol.SelfRegisteringRemoteControlLauncher"
           fork="true"
@@ -73,6 +75,9 @@
   </target>
 
   <target name="launch-remote-control-without-custom-profile" depends="check-for-custom-profile" unless="use.custom.profile">
+    <fail unless="rc.host" message="Property rc.host must be set in ${env.HOSTNAME}.project.properties" />
+    <fail unless="rc.port" message="Property rc.port must be set in ${env.HOSTNAME}.project.properties" />
+    <fail unless="rc.environment" message="Property rc.environment must be set on the command line. Example: -Drc.environment='Firefox Beta on Mac OS X'" /> 
     <java classpathref="remote-control.classpath"
           classname="com.thoughtworks.selenium.grid.remotecontrol.SelfRegisteringRemoteControlLauncher"
           fork="true"
