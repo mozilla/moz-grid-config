@@ -4,24 +4,13 @@
   <exec executable="hostname" osfamily="unix" failifexecutionfails="false" outputproperty="env.COMPUTERNAME"/>
   <property name="env.HOSTNAME" value="${env.COMPUTERNAME}"/> <!-- Windows vs. Linux -->
 
-  <property file="${basedir}/${env.HOSTNAME}.project.properties" />
-  <property file="${basedir}/project.properties"/>
+  <property file="${basedir}/${env.HOSTNAME}.properties" />
+  <property file="${basedir}/default.properties"/>
 
-  <path id="remote-control.classpath">
-    <fileset dir="${basedir}/vendor">
-      <include name="selenium-server-standalone-${rc.version}.jar"/>
-    </fileset>
-    <!-- Selenium Server must be first in classpath -->
-    <fileset dir="${basedir}/lib">
-      <include name="selenium-grid-remote-control-standalone-${grid.version}.jar"/>
-    </fileset>
-    <pathelement path="${java.class.path}/"/>
-  </path>
-
-  <path id="hub.classpath">
+  <path id="selenium.classpath">
     <pathelement path="${basedir}/"/>
     <fileset dir="${basedir}/lib">
-      <include name="selenium-grid-hub-standalone-${grid.version}.jar"/>
+      <include name="selenium-server-standalone-${selenium.version}.jar"/>
     </fileset>
     <pathelement path="${java.class.path}/"/>
   </path>
@@ -32,10 +21,33 @@
   </target>
 
   <target name="launch-hub" description="Launch Selenium Hub">
-    <java classname="com.thoughtworks.selenium.grid.hub.HubServer"
-          classpathref="hub.classpath"
+    <java classname="org.openqa.grid.selenium.GridLauncher"
+          classpathref="selenium.classpath"
           fork="true"
-          failonerror="true" />
+          failonerror="true">
+      <arg value="-role"/>
+      <arg value="hub"/>
+      <arg value="-grid1Yml"/>
+      <arg value="grid_configuration.yml"/>
+      <arg value="-hubConfig"/>
+      <arg value="hub_configuration.json"/>
+    </java>
+  </target>
+
+  <target name="launch-webdriver">
+    <java classpathref="selenium.classpath"
+          classname="org.openqa.grid.selenium.GridLauncher"
+          fork="true"
+          failonerror="true">
+      <arg value="-role"/>
+      <arg value="webdriver"/>
+      <arg value="-hub"/>
+      <arg value="http://${hub.host}:${hub.port}/grid/register"/>
+      <arg value="-host"/>
+      <arg value="${node.host}"/>
+      <arg value="-nodeConfig"/>
+      <arg value="${node.configuration.file}"/>
+    </java>
   </target>
 
   <target name="launch-remote-control"
@@ -51,47 +63,37 @@
   </target>
 
   <target name="launch-remote-control-with-custom-profile" depends="check-for-custom-profile" if="use.custom.profile">
-    <fail unless="rc.host" message="Property rc.host must be set in ${env.HOSTNAME}.project.properties" />
-    <fail unless="rc.port" message="Property rc.port must be set in ${env.HOSTNAME}.project.properties" />
-    <fail unless="rc.environment" message="Property rc.environment must be set on the command line. Example: -Drc.environment='Firefox Beta on Mac OS X'" /> 
-    <java classpathref="remote-control.classpath"
-          classname="com.thoughtworks.selenium.grid.remotecontrol.SelfRegisteringRemoteControlLauncher"
+    <java classpathref="selenium.classpath"
+          classname="org.openqa.grid.selenium.GridLauncher"
           fork="true"
           failonerror="true">
-      <arg value="-port"/>
-      <arg value="${rc.port}"/>
+      <arg value="-role"/>
+      <arg value="rc"/>
+      <arg value="-hub"/>
+      <arg value="http://${hub.host}:${hub.port}/grid/register"/>
       <arg value="-host"/>
-      <arg value="${rc.host}"/>
-      <arg value="-hubURL"/>
-      <arg value="http://${hub.host}:${hub.port}"/>
-      <arg value="-env"/>
-      <arg value="${rc.environment}"/>
+      <arg value="${node.host}"/>
+      <arg value="-nodeConfig"/>
+      <arg value="${node.configuration.file}"/>
       <arg value="-firefoxProfileTemplate"/>
       <arg value="${basedir}${file.separator}firefoxprofiles${file.separator}${custom.firefox.profile}"/>
-      <arg value="-hubPollerIntervalInSeconds"/>
-      <arg value="30"/>
       <arg line="${rc.arguments}"/>
     </java>
   </target>
 
   <target name="launch-remote-control-without-custom-profile" depends="check-for-custom-profile" unless="use.custom.profile">
-    <fail unless="rc.host" message="Property rc.host must be set in ${env.HOSTNAME}.project.properties" />
-    <fail unless="rc.port" message="Property rc.port must be set in ${env.HOSTNAME}.project.properties" />
-    <fail unless="rc.environment" message="Property rc.environment must be set on the command line. Example: -Drc.environment='Firefox Beta on Mac OS X'" /> 
     <java classpathref="remote-control.classpath"
-          classname="com.thoughtworks.selenium.grid.remotecontrol.SelfRegisteringRemoteControlLauncher"
+          classname="org.openqa.grid.selenium.GridLauncher"
           fork="true"
           failonerror="true">
-      <arg value="-port"/>
-      <arg value="${rc.port}"/>
+      <arg value="-role"/>
+      <arg value="rc"/>
+      <arg value="-hub"/>
+      <arg value="http://${hub.host}:${hub.port}/grid/register"/>
       <arg value="-host"/>
-      <arg value="${rc.host}"/>
-      <arg value="-hubURL"/>
-      <arg value="http://${hub.host}:${hub.port}"/>
-      <arg value="-env"/>
-      <arg value="${rc.environment}"/>
-      <arg value="-hubPollerIntervalInSeconds"/>
-      <arg value="30"/>
+      <arg value="${node.host}"/>
+      <arg value="-nodeConfig"/>
+      <arg value="${node.configuration.file}"/>
       <arg line="${rc.arguments}"/>
     </java>
   </target>

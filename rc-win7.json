@@ -1,0 +1,33 @@
+{
+    "capabilities":
+        [
+            {
+                "browserName": "Firefox 3.6 on Windows 7",
+                "maxInstances": 5
+            }, {
+                "browserName": "Firefox 4 on Windows 7",
+                "maxInstances": 5
+            }, {
+                "browserName": "Firefox 5 on Windows 7",
+                "maxInstances": 5
+            }, {
+                "browserName": "Firefox 6 on Windows 7",
+                "maxInstances": 5
+            }, {
+                "browserName": "Firefox Beta on Windows 7",
+                "maxInstances": 5
+            }, {
+                "browserName": "Firefox Aurora on Windows 7",
+                "maxInstances": 5
+            }, {
+                "browserName": "Firefox Nightly on Windows 7",
+                "maxInstances": 5
+            }, {
+                "browserName": "Internet Explorer 8 on Windows 7",
+                "maxInstances": 1
+            }
+        ],
+    "configuration": {
+        "timeout": 180000
+    }
+}
