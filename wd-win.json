@@ -6,49 +6,49 @@
                 "version": "3.6",
                 "firefox_binary": "C:/Program Files/Mozilla Firefox 3.6/firefox.exe",
                 "platform": "WINDOWS",
-                "maxInstances": 5
+                "maxInstances": 1
             }, {
                 "browserName": "firefox",
                 "version": "4",
                 "firefox_binary": "C:/Program Files/Mozilla Firefox 4/firefox.exe",
                 "platform": "WINDOWS",
-                "maxInstances": 5
+                "maxInstances": 1
             }, {
                 "browserName": "firefox",
                 "version": "5",
                 "firefox_binary": "C:/Program Files/Mozilla Firefox 5/firefox.exe",
                 "platform": "WINDOWS",
-                "maxInstances": 5
+                "maxInstances": 1
             }, {
                 "browserName": "firefox",
                 "version": "6",
                 "firefox_binary": "C:/Program Files/Mozilla Firefox 6/firefox.exe",
                 "platform": "WINDOWS",
-                "maxInstances": 5
+                "maxInstances": 1
             }, {
                 "browserName": "firefox",
                 "version": "7",
                 "firefox_binary": "C:/Program Files/Mozilla Firefox 7/firefox.exe",
                 "platform": "WINDOWS",
-                "maxInstances": 5
+                "maxInstances": 1
             }, {
                 "browserName": "firefox",
                 "version": "beta",
                 "firefox_binary": "C:/Program Files/Mozilla Firefox Beta/firefox.exe",
                 "platform": "WINDOWS",
-                "maxInstances": 5
+                "maxInstances": 1
             }, {
                 "browserName": "firefox",
                 "version": "aurora",
                 "firefox_binary": "C:/Program Files/Aurora/firefox.exe",
                 "platform": "WINDOWS",
-                "maxInstances": 5
+                "maxInstances": 1
             }, {
                 "browserName": "firefox",
                 "version": "nightly",
                 "firefox_binary": "C:/Program Files/Nightly/firefox.exe",
                 "platform": "WINDOWS",
-                "maxInstances": 5
+                "maxInstances": 1
             }, {
                 "browserName": "internet explorer",
                 "version": "8",
