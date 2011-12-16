@@ -76,19 +76,12 @@ Run the following command from the project's location:
 
     ant launch-hub
 
-Launching a Selenium WebDriver node
------------------------------------
+Launching a Selenium node
+-------------------------
 
 Run the following command from the project's location:
 
-    ant launch-webdriver
-
-Launching a Selenium RC node
-----------------------------
-
-Run the following command from the project's location:
-
-    ant launch-remote-control
+    ant launch-node
 
 Specifying properties on the command line
 -----------------------------------------
@@ -96,7 +89,7 @@ Specifying properties on the command line
 You can override any of the properties from `default.properties` or
 `<HOSTNAME>.properties` on the command line by passing them in the format
 `-D<PROPERTY>=<VALUE>`. For example, to specify a custom firefox profile for an
-RC node you would use `ant launch-remote-control
+RC node you would use `ant launch-node
 -Dcustom.firefox.profile=myProfile`
 
 License
