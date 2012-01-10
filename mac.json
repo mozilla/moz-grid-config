@@ -13,7 +13,11 @@
                 "browserName": "Firefox 8 on Mac OS X",
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
-            },{
+            }, {
+                "browserName": "Firefox 9 on Mac OS X",
+                "maxInstances": 5,
+                "seleniumProtocol": "Selenium"
+            }, {
                 "browserName": "Firefox Beta on Mac OS X",
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
@@ -43,6 +47,13 @@
                 "browserName": "firefox",
                 "version": "8",
                 "firefox_binary": "/Applications/Firefox 8.app/Contents/MacOS/firefox-bin",
+                "platform": "MAC",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
+            }, {
+                "browserName": "firefox",
+                "version": "9",
+                "firefox_binary": "/Applications/Firefox 9.app/Contents/MacOS/firefox-bin",
                 "platform": "MAC",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
