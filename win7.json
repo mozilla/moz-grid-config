@@ -6,23 +6,15 @@
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
             }, {
-                "browserName": "Firefox 4 on Windows 7",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
-                "browserName": "Firefox 5 on Windows 7",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
-                "browserName": "Firefox 6 on Windows 7",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
                 "browserName": "Firefox 7 on Windows 7",
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
             }, {
                 "browserName": "Firefox 8 on Windows 7",
+                "maxInstances": 5,
+                "seleniumProtocol": "Selenium"
+            }, {
+                "browserName": "Firefox 9 on Windows 7",
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
             }, {
@@ -50,27 +42,6 @@
                 "seleniumProtocol": "WebDriver"
             }, {
                 "browserName": "firefox",
-                "version": "4",
-                "firefox_binary": "C:/Program Files/Mozilla Firefox 4/firefox.exe",
-                "platform": "WINDOWS",
-                "maxInstances": 1,
-                "seleniumProtocol": "WebDriver"
-            }, {
-                "browserName": "firefox",
-                "version": "5",
-                "firefox_binary": "C:/Program Files/Mozilla Firefox 5/firefox.exe",
-                "platform": "WINDOWS",
-                "maxInstances": 1,
-                "seleniumProtocol": "WebDriver"
-            }, {
-                "browserName": "firefox",
-                "version": "6",
-                "firefox_binary": "C:/Program Files/Mozilla Firefox 6/firefox.exe",
-                "platform": "WINDOWS",
-                "maxInstances": 1,
-                "seleniumProtocol": "WebDriver"
-            }, {
-                "browserName": "firefox",
                 "version": "7",
                 "firefox_binary": "C:/Program Files/Mozilla Firefox 7/firefox.exe",
                 "platform": "WINDOWS",
@@ -80,6 +51,13 @@
                 "browserName": "firefox",
                 "version": "8",
                 "firefox_binary": "C:/Program Files/Mozilla Firefox 8/firefox.exe",
+                "platform": "WINDOWS",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
+            }, {
+                "browserName": "firefox",
+                "version": "9",
+                "firefox_binary": "C:/Program Files/Mozilla Firefox 9/firefox.exe",
                 "platform": "WINDOWS",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
