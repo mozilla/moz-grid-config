@@ -7,23 +7,14 @@
   <property file="${basedir}/${env.HOSTNAME}.properties" />
   <property file="${basedir}/default.properties"/>
 
-  <target name="if-mozilla">
-    <condition property="cond">
+  <target name="set-hub-host">
+    <condition property="hub.host" value="${mozilla.hub.host}">
       <or>
-        <matches pattern="qa\-selenium[0-9]?\.mv\.mozilla\.com" string="${env.HOSTNAME}"/> <!--moz mac machine -->
-        <matches pattern="qa[0-9]?\-win7" string="${env.HOSTNAME}"/> <!--moz win machine -->
+        <matches pattern="qa\-selenium[0-9]*\.mv\.mozilla\.com" string="${env.HOSTNAME}"/>
+        <matches pattern="qa[0-9]*\-\w+" string="${env.HOSTNAME}"/>
       </or>
     </condition>
-  </target>
- 
-  <target name="init-hub-mozilla" depends="if-mozilla" if="cond">
-    <property name="hub.host" value="${mozilla.hub.host}"/>
-    <property name="hub.port" value="${mozilla.hub.port}"/>
-  </target>
- 
-  <target name="init-hub-properties" depends="init-hub-mozilla">
     <property name="hub.host" value="${local.hub.host}"/>
-    <property name="hub.port" value="${local.hub.port}"/>
   </target>
 
   <path id="selenium.classpath">
@@ -55,7 +46,7 @@
 
   <target name="launch-node"
           description="Launch Selenium Node"
-          depends="init-hub-properties, launch-node-with-custom-profile, launch-node-without-custom-profile"/>
+          depends="set-hub-host, launch-node-with-custom-profile, launch-node-without-custom-profile"/>
 
   <target name="check-for-custom-profile">
     <condition property="use.custom.profile">
@@ -65,7 +56,7 @@
     </condition>
   </target>
 
-  <target name="launch-node-with-custom-profile" depends="init-hub-properties, check-for-custom-profile" if="use.custom.profile">
+  <target name="launch-node-with-custom-profile" depends="set-hub-host, check-for-custom-profile" if="use.custom.profile">
     <java classpathref="selenium.classpath"
           classname="org.openqa.grid.selenium.GridLauncher"
           fork="true"
@@ -84,7 +75,7 @@
     </java>
   </target>
 
-  <target name="launch-node-without-custom-profile" depends="init-hub-properties, check-for-custom-profile" unless="use.custom.profile">
+  <target name="launch-node-without-custom-profile" depends="set-hub-host, check-for-custom-profile" unless="use.custom.profile">
     <java classpathref="remote-control.classpath"
           classname="org.openqa.grid.selenium.GridLauncher"
           fork="true"
