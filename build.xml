@@ -15,6 +15,7 @@
       </or>
     </condition>
     <property name="hub.host" value="${local.hub.host}"/>
+    <echo>hub.host: ${hub.host}</echo>
   </target>
 
   <path id="selenium.classpath">
