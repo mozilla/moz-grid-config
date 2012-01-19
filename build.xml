@@ -11,7 +11,7 @@
     <condition property="hub.host" value="${mozilla.hub.host}">
       <or>
         <matches pattern="qa\-selenium[0-9]*\.mv\.mozilla\.com" string="${env.HOSTNAME}"/>
-        <matches pattern="qa[0-9]*\-\w+" string="${env.HOSTNAME}"/>
+        <matches pattern="qa[0-9]*\-\w+" string="${env.HOSTNAME}" casesensitive="false"/>
       </or>
     </condition>
     <property name="hub.host" value="localhost"/>
