@@ -7,6 +7,13 @@
   <property file="${basedir}/${env.HOSTNAME}.properties" />
   <property file="${basedir}/default.properties"/>
 
+  <target name="fetch-dependencies">
+    <mkdir dir="lib"/>
+    <get src="http://selenium.googlecode.com/files/selenium-server-standalone-${selenium.version}.jar"
+         dest="lib"
+         usetimestamp="true"/>
+  </target>
+
   <target name="set-hosts">
     <condition property="hub.host" value="${mozilla.hub.host}">
       <or>
@@ -33,7 +40,9 @@
     <echoproperties/>
   </target>
 
-  <target name="launch-hub" description="Launch Selenium Hub">
+  <target name="launch-hub"
+          description="Launch Selenium Hub"
+          depends="fetch-dependencies">
     <java classname="org.openqa.grid.selenium.GridLauncher"
           classpathref="selenium.classpath"
           fork="true"
@@ -49,7 +58,7 @@
 
   <target name="launch-node"
           description="Launch Selenium Node"
-          depends="set-hosts, launch-node-with-custom-profile, launch-node-without-custom-profile"/>
+          depends="fetch-dependencies, set-hosts, launch-node-with-custom-profile, launch-node-without-custom-profile"/>
 
   <target name="check-for-custom-profile">
     <condition property="use.custom.profile">
