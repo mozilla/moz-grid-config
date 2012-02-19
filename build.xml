@@ -15,14 +15,44 @@
   </target>
 
   <target name="set-hosts">
-    <condition property="hub.host" value="${mozilla.hub.host}">
-      <or>
-        <matches pattern="qa\-selenium[0-9]*\.mv\.mozilla\.com" string="${env.HOSTNAME}"/>
-        <matches pattern="qa[0-9]*\-\w+" string="${env.HOSTNAME}" casesensitive="false"/>
-      </or>
+    <!-- nodes that can't be addressed by hostname -->
+    <condition property="isNotAddressable">
+      <matches pattern="${nonaddressable.hostnames.regex}"
+               string="${env.HOSTNAME}"
+               casesensitive="false"/>
     </condition>
+
+    <!-- production nodes -->
+    <condition property="isProduction">
+      <matches pattern="${production.hostnames.regex}"
+               string="${env.HOSTNAME}"
+               casesensitive="false"/>
+    </condition>
+
+    <!-- if this is a production node set the production hub host -->
+    <condition property="hub.host" value="${production.hub.host}">
+      <isset property="isProduction"/>
+    </condition>
+
+    <!-- otherwise set to localhost (unless overridden) -->
     <property name="hub.host" value="localhost"/>
-    <property name="node.host" value="localhost"/>
+
+    <!-- if this is a production node that can't be addressed then use IP -->
+    <condition property="node.host" value="IP">
+      <and>
+        <isset property="isProduction"/>
+        <isset property="isNotAddressable"/>
+      </and>
+    </condition>
+
+    <!-- if the hub is running on localhost then so must the node be -->
+    <condition property="node.host" value="localhost">
+      <matches pattern="localhost" string="${hub.host}"/>
+    </condition>
+
+    <!-- otherwise set to the hostname -->
+    <property name="node.host" value="${env.HOSTNAME}"/>
+
     <echo>hub.host: ${hub.host}</echo>
     <echo>node.host: ${node.host}</echo>
   </target>
@@ -35,7 +65,7 @@
     <pathelement path="${java.class.path}/"/>
   </path>
 
-  <!-- Debug target to show variables -->
+  <!-- debug target to show variables -->
   <target name="debug">
     <echoproperties/>
   </target>
