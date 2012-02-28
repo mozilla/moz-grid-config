@@ -14,15 +14,60 @@
          usetimestamp="true"/>
   </target>
 
-  <target name="set-hosts">
-    <condition property="hub.host" value="${mozilla.hub.host}">
-      <or>
-        <matches pattern="qa\-selenium[0-9]*\.mv\.mozilla\.com" string="${env.HOSTNAME}"/>
-        <matches pattern="qa[0-9]*\-\w+" string="${env.HOSTNAME}" casesensitive="false"/>
-      </or>
+  <target name="set-config">
+    <echo>os.name: ${os.name}</echo>
+    <condition property="node.configuration.file" value="mac.json">
+      <contains string="${os.name}" substring="mac" casesensitive="false"/>
     </condition>
+    <condition property="node.configuration.file" value="winvista.json">
+      <os name="Windows Vista"/>
+    </condition>
+    <condition property="node.configuration.file" value="win7.json">
+      <os name="Windows 7"/>
+    </condition>
+    <property name="node.configuration.file" value="default.json"/>
+    <echo>node.configuration.file: ${node.configuration.file}</echo>
+  </target>
+
+  <target name="set-hosts">
+    <!-- nodes that can't be addressed by hostname -->
+    <condition property="isNotAddressable">
+      <matches pattern="${nonaddressable.hostnames.regex}"
+               string="${env.HOSTNAME}"
+               casesensitive="false"/>
+    </condition>
+
+    <!-- production nodes -->
+    <condition property="isProduction">
+      <matches pattern="${production.hostnames.regex}"
+               string="${env.HOSTNAME}"
+               casesensitive="false"/>
+    </condition>
+
+    <!-- if this is a production node set the production hub host -->
+    <condition property="hub.host" value="${production.hub.host}">
+      <isset property="isProduction"/>
+    </condition>
+
+    <!-- otherwise set to localhost (unless overridden) -->
     <property name="hub.host" value="localhost"/>
-    <property name="node.host" value="localhost"/>
+
+    <!-- if this is a production node that can't be addressed then use IP -->
+    <condition property="node.host" value="IP">
+      <and>
+        <isset property="isProduction"/>
+        <isset property="isNotAddressable"/>
+      </and>
+    </condition>
+
+    <!-- if the hub is running on localhost then so must the node be -->
+    <condition property="node.host" value="localhost">
+      <matches pattern="localhost" string="${hub.host}"/>
+    </condition>
+
+    <!-- otherwise set to the hostname -->
+    <property name="node.host" value="${env.HOSTNAME}"/>
+
     <echo>hub.host: ${hub.host}</echo>
     <echo>node.host: ${node.host}</echo>
   </target>
@@ -35,7 +80,7 @@
     <pathelement path="${java.class.path}/"/>
   </path>
 
-  <!-- Debug target to show variables -->
+  <!-- debug target to show variables -->
   <target name="debug">
     <echoproperties/>
   </target>
@@ -58,7 +103,7 @@
 
   <target name="launch-node"
           description="Launch Selenium Node"
-          depends="fetch-dependencies, set-hosts, launch-node-with-custom-profile, launch-node-without-custom-profile"/>
+          depends="fetch-dependencies, set-config, set-hosts, launch-node-with-custom-profile, launch-node-without-custom-profile"/>
 
   <target name="check-for-custom-profile">
     <condition property="use.custom.profile">
@@ -69,7 +114,7 @@
   </target>
 
   <target name="launch-node-with-custom-profile"
-          depends="set-hosts, check-for-custom-profile"
+          depends="check-for-custom-profile"
           if="use.custom.profile">
     <java classpathref="selenium.classpath"
           classname="org.openqa.grid.selenium.GridLauncher"
@@ -90,7 +135,7 @@
   </target>
 
   <target name="launch-node-without-custom-profile"
-          depends="set-hosts, check-for-custom-profile"
+          depends="check-for-custom-profile"
           unless="use.custom.profile">
     <java classpathref="remote-control.classpath"
           classname="org.openqa.grid.selenium.GridLauncher"
