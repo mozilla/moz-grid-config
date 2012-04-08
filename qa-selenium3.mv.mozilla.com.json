@@ -2,10 +2,6 @@
     "capabilities":
         [
             {
-                "browserName": "Google Chrome on Mac OS X",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
                 "browserName": "Firefox Beta on Mac OS X",
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
@@ -17,12 +13,6 @@
                 "browserName": "Firefox Nightly on Mac OS X",
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
-            }, {
-                "browserName": "chrome",
-                "version": "18",
-                "platform": "MAC",
-                "maxInstances": 1,
-                "seleniumProtocol": "WebDriver"
             }, {
                 "browserName": "firefox",
                 "version": "beta",
