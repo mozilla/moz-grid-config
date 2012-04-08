@@ -26,18 +26,6 @@
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
             }, {
-                "browserName": "Firefox Beta on Mac OS X",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
-                "browserName": "Firefox Aurora on Mac OS X",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
-                "browserName": "Firefox Nightly on Mac OS X",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
                 "browserName": "firefox",
                 "version": "3.6",
                 "firefox_binary": "/Applications/Firefox 3.6.app/Contents/MacOS/firefox-bin",
@@ -76,27 +64,6 @@
                 "browserName": "firefox",
                 "version": "11",
                 "firefox_binary": "/Applications/Firefox 11.app/Contents/MacOS/firefox-bin",
-                "platform": "MAC",
-                "maxInstances": 1,
-                "seleniumProtocol": "WebDriver"
-            }, {
-                "browserName": "firefox",
-                "version": "beta",
-                "firefox_binary": "/Applications/Firefox Beta.app/Contents/MacOS/firefox-bin",
-                "platform": "MAC",
-                "maxInstances": 1,
-                "seleniumProtocol": "WebDriver"
-            }, {
-                "browserName": "firefox",
-                "version": "aurora",
-                "firefox_binary": "/Applications/Aurora.app/Contents/MacOS/firefox-bin",
-                "platform": "MAC",
-                "maxInstances": 1,
-                "seleniumProtocol": "WebDriver"
-            }, {
-                "browserName": "firefox",
-                "version": "nightly",
-                "firefox_binary": "/Applications/Nightly.app/Contents/MacOS/firefox-bin",
                 "platform": "MAC",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
