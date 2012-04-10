@@ -1,0 +1,42 @@
+{
+    "capabilities":
+        [
+            {
+                "browserName": "Firefox Beta on Mac OS X",
+                "maxInstances": 5,
+                "seleniumProtocol": "Selenium"
+            }, {
+                "browserName": "Firefox Aurora on Mac OS X",
+                "maxInstances": 5,
+                "seleniumProtocol": "Selenium"
+            }, {
+                "browserName": "Firefox Nightly on Mac OS X",
+                "maxInstances": 5,
+                "seleniumProtocol": "Selenium"
+            }, {
+                "browserName": "firefox",
+                "version": "beta",
+                "firefox_binary": "/Applications/Firefox Beta.app/Contents/MacOS/firefox-bin",
+                "platform": "MAC",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
+            }, {
+                "browserName": "firefox",
+                "version": "aurora",
+                "firefox_binary": "/Applications/Aurora.app/Contents/MacOS/firefox-bin",
+                "platform": "MAC",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
+            }, {
+                "browserName": "firefox",
+                "version": "nightly",
+                "firefox_binary": "/Applications/Nightly.app/Contents/MacOS/firefox-bin",
+                "platform": "MAC",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
+            }
+        ],
+    "configuration": {
+        "timeout": 180000
+    }
+}
