@@ -91,7 +91,5 @@
                 "seleniumProtocol": "WebDriver"
             }
         ],
-    "configuration": {
-        "timeout": 180000
-    }
+    "configuration": {}
 }
