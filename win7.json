@@ -22,6 +22,10 @@
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
             }, {
+                "browserName": "Firefox 11 on Windows 7",
+                "maxInstances": 5,
+                "seleniumProtocol": "Selenium"
+            }, {
                 "browserName": "Firefox Beta on Windows 7",
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
@@ -74,6 +78,13 @@
                 "seleniumProtocol": "WebDriver"
             }, {
                 "browserName": "firefox",
+                "version": "11",
+                "firefox_binary": "C:/Program Files/Mozilla Firefox 11/firefox.exe",
+                "platform": "WINDOWS",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
+            }, {
+                "browserName": "firefox",
                 "version": "beta",
                 "firefox_binary": "C:/Program Files/Mozilla Firefox Beta/firefox.exe",
                 "platform": "WINDOWS",
@@ -101,7 +112,5 @@
                 "seleniumProtocol": "WebDriver"
             }
         ],
-    "configuration": {
-        "timeout": 180000
-    }
+    "configuration": {}
 }
