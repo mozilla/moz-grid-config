@@ -22,6 +22,10 @@
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
             }, {
+                "browserName": "Firefox 11 on Mac OS X",
+                "maxInstances": 5,
+                "seleniumProtocol": "Selenium"
+            }, {
                 "browserName": "Firefox Beta on Mac OS X",
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
@@ -70,6 +74,13 @@
                 "seleniumProtocol": "WebDriver"
             }, {
                 "browserName": "firefox",
+                "version": "11",
+                "firefox_binary": "/Applications/Firefox 11.app/Contents/MacOS/firefox-bin",
+                "platform": "MAC",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
+            }, {
+                "browserName": "firefox",
                 "version": "beta",
                 "firefox_binary": "/Applications/Firefox Beta.app/Contents/MacOS/firefox-bin",
                 "platform": "MAC",
@@ -91,7 +102,5 @@
                 "seleniumProtocol": "WebDriver"
             }
         ],
-    "configuration": {
-        "timeout": 180000
-    }
+    "configuration": {}
 }
