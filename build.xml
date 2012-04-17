@@ -122,8 +122,6 @@
           failonerror="true">
       <arg value="-role"/>
       <arg value="node"/>
-      <arg value="-id"/>
-      <arg value="${env.HOSTNAME}"/>
       <arg value="-hub"/>
       <arg value="http://${hub.host}:${hub.port}/grid/register"/>
       <arg value="-host"/>
@@ -145,8 +143,6 @@
           failonerror="true">
       <arg value="-role"/>
       <arg value="node"/>
-      <arg value="-id"/>
-      <arg value="${env.HOSTNAME}"/>
       <arg value="-hub"/>
       <arg value="http://${hub.host}:${hub.port}/grid/register"/>
       <arg value="-host"/>
