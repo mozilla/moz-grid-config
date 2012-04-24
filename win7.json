@@ -26,6 +26,10 @@
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
             }, {
+                "browserName": "Firefox 12 on Windows 7",
+                "maxInstances": 5,
+                "seleniumProtocol": "Selenium"
+            }, {
                 "browserName": "Internet Explorer 8 on Windows 7",
                 "maxInstances": 1,
                 "seleniumProtocol": "Selenium"
@@ -68,6 +72,13 @@
                 "browserName": "firefox",
                 "version": "11",
                 "firefox_binary": "C:/Program Files/Mozilla Firefox 11/firefox.exe",
+                "platform": "WINDOWS",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
+            }, {
+                "browserName": "firefox",
+                "version": "12",
+                "firefox_binary": "C:/Program Files/Mozilla Firefox 12/firefox.exe",
                 "platform": "WINDOWS",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
