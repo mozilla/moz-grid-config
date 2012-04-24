@@ -26,6 +26,10 @@
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
             }, {
+                "browserName": "Firefox 12 on Mac OS X",
+                "maxInstances": 5,
+                "seleniumProtocol": "Selenium"
+            }, {
                 "browserName": "firefox",
                 "version": "3.6",
                 "firefox_binary": "/Applications/Firefox 3.6.app/Contents/MacOS/firefox-bin",
@@ -64,6 +68,13 @@
                 "browserName": "firefox",
                 "version": "11",
                 "firefox_binary": "/Applications/Firefox 11.app/Contents/MacOS/firefox-bin",
+                "platform": "MAC",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
+            }, {
+                "browserName": "firefox",
+                "version": "12",
+                "firefox_binary": "/Applications/Firefox 12.app/Contents/MacOS/firefox-bin",
                 "platform": "MAC",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
