@@ -2,6 +2,12 @@ hub:
    environments:
        - name: "Firefox 3.6 on Mac OS X"
          browser: "*firefox /Applications/Firefox 3.6.app/Contents/MacOS/firefox-bin"
+       - name: "Firefox 7 on Mac OS X"
+         browser: "*firefox /Applications/Firefox 7.app/Contents/MacOS/firefox-bin"
+       - name: "Firefox 8 on Mac OS X"
+         browser: "*firefox /Applications/Firefox 8.app/Contents/MacOS/firefox-bin"
+       - name: "Firefox 9 on Mac OS X"
+         browser: "*firefox /Applications/Firefox 9.app/Contents/MacOS/firefox-bin"
        - name: "Firefox 10 on Mac OS X"
          browser: "*firefox /Applications/Firefox 10.app/Contents/MacOS/firefox-bin"
        - name: "Firefox 11 on Mac OS X"
