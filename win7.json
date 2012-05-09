@@ -6,18 +6,6 @@
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
             }, {
-                "browserName": "Firefox 7 on Windows 7",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
-                "browserName": "Firefox 8 on Windows 7",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
-                "browserName": "Firefox 9 on Windows 7",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
                 "browserName": "Firefox 10 on Windows 7",
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
@@ -26,15 +14,7 @@
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
             }, {
-                "browserName": "Firefox Beta on Windows 7",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
-                "browserName": "Firefox Aurora on Windows 7",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
-                "browserName": "Firefox Nightly on Windows 7",
+                "browserName": "Firefox 12 on Windows 7",
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
             }, {
@@ -45,27 +25,6 @@
                 "browserName": "firefox",
                 "version": "3.6",
                 "firefox_binary": "C:/Program Files/Mozilla Firefox 3.6/firefox.exe",
-                "platform": "WINDOWS",
-                "maxInstances": 1,
-                "seleniumProtocol": "WebDriver"
-            }, {
-                "browserName": "firefox",
-                "version": "7",
-                "firefox_binary": "C:/Program Files/Mozilla Firefox 7/firefox.exe",
-                "platform": "WINDOWS",
-                "maxInstances": 1,
-                "seleniumProtocol": "WebDriver"
-            }, {
-                "browserName": "firefox",
-                "version": "8",
-                "firefox_binary": "C:/Program Files/Mozilla Firefox 8/firefox.exe",
-                "platform": "WINDOWS",
-                "maxInstances": 1,
-                "seleniumProtocol": "WebDriver"
-            }, {
-                "browserName": "firefox",
-                "version": "9",
-                "firefox_binary": "C:/Program Files/Mozilla Firefox 9/firefox.exe",
                 "platform": "WINDOWS",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
@@ -85,22 +44,8 @@
                 "seleniumProtocol": "WebDriver"
             }, {
                 "browserName": "firefox",
-                "version": "beta",
-                "firefox_binary": "C:/Program Files/Mozilla Firefox Beta/firefox.exe",
-                "platform": "WINDOWS",
-                "maxInstances": 1,
-                "seleniumProtocol": "WebDriver"
-            }, {
-                "browserName": "firefox",
-                "version": "aurora",
-                "firefox_binary": "C:/Program Files/Aurora/firefox.exe",
-                "platform": "WINDOWS",
-                "maxInstances": 1,
-                "seleniumProtocol": "WebDriver"
-            }, {
-                "browserName": "firefox",
-                "version": "nightly",
-                "firefox_binary": "C:/Program Files/Nightly/firefox.exe",
+                "version": "12",
+                "firefox_binary": "C:/Program Files/Mozilla Firefox 12/firefox.exe",
                 "platform": "WINDOWS",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
@@ -112,7 +57,5 @@
                 "seleniumProtocol": "WebDriver"
             }
         ],
-    "configuration": {
-        "timeout": 180000
-    }
+    "configuration": {}
 }
