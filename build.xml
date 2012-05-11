@@ -11,7 +11,14 @@
     <mkdir dir="lib"/>
     <get src="http://selenium.googlecode.com/files/selenium-server-standalone-${selenium.version}.jar"
          dest="lib"
-         usetimestamp="true"/>
+         usetimestamp="true"
+         ignoreerrors="yes"/>
+
+    <condition property="fetch-dependencies.complete">
+      <available property="file.exists" file="${basedir}/lib/selenium-server-standalone-${selenium.version}.jar"/>
+    </condition>
+
+    <fail unless="fetch-dependencies.complete" message="The selenium dependencies not found"/>
   </target>
 
   <target name="set-config">
