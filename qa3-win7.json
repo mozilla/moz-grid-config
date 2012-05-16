@@ -1,0 +1,46 @@
+{
+    "capabilities":
+        [
+            {
+                "browserName": "opera",
+                "platform": "WINDOWS",
+                "maxInstances": 5,
+                "seleniumProtocol": "WebDriver"
+            }, {
+                "browserName": "firefox",
+                "version": "3.6",
+                "firefox_binary": "C:/Program Files/Mozilla Firefox 3.6/firefox.exe",
+                "platform": "WINDOWS",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
+            }, {
+                "browserName": "firefox",
+                "version": "10",
+                "firefox_binary": "C:/Program Files/Mozilla Firefox 10/firefox.exe",
+                "platform": "WINDOWS",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
+            }, {
+                "browserName": "firefox",
+                "version": "11",
+                "firefox_binary": "C:/Program Files/Mozilla Firefox 11/firefox.exe",
+                "platform": "WINDOWS",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
+            }, {
+                "browserName": "firefox",
+                "version": "12",
+                "firefox_binary": "C:/Program Files/Mozilla Firefox 12/firefox.exe",
+                "platform": "WINDOWS",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
+            }, {
+                "browserName": "internet explorer",
+                "version": "8",
+                "platform": "WINDOWS",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
+            }
+        ],
+    "configuration": {}
+}
