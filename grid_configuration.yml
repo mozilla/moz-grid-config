@@ -14,6 +14,8 @@ hub:
          browser: "*firefox /Applications/Firefox 11.app/Contents/MacOS/firefox-bin"
        - name: "Firefox 12 on Mac OS X"
          browser: "*firefox /Applications/Firefox 12.app/Contents/MacOS/firefox-bin"
+       - name: "Firefox 13 on Mac OS X"
+         browser: "*firefox /Applications/Firefox 13.app/Contents/MacOS/firefox-bin"
        - name: "Firefox Beta on Mac OS X"
          browser: "*firefox /Applications/Firefox Beta.app/Contents/MacOS/firefox-bin"
        - name: "Firefox Aurora on Mac OS X"
