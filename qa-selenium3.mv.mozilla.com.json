@@ -30,6 +30,10 @@
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
             }, {
+                "browserName": "Firefox 13 on Mac OS X",
+                "maxInstances": 5,
+                "seleniumProtocol": "Selenium"
+            }, {
                 "browserName": "Firefox Beta on Mac OS X",
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
@@ -87,6 +91,13 @@
                 "browserName": "firefox",
                 "version": "12",
                 "firefox_binary": "/Applications/Firefox 12.app/Contents/MacOS/firefox-bin",
+                "platform": "MAC",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
+            },{
+                "browserName": "firefox",
+                "version": "13",
+                "firefox_binary": "/Applications/Firefox 13.app/Contents/MacOS/firefox-bin",
                 "platform": "MAC",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
