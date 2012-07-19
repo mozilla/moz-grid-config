@@ -2,15 +2,7 @@
     "capabilities":
         [
             {
-                "browserName": "Firefox 3.6 on Mac OS X",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
                 "browserName": "Firefox 10 on Mac OS X",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
-                "browserName": "Firefox 11 on Mac OS X",
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
             }, {
@@ -23,22 +15,8 @@
                 "seleniumProtocol": "Selenium"
             }, {
                 "browserName": "firefox",
-                "version": "3.6",
-                "firefox_binary": "/Applications/Firefox 3.6.app/Contents/MacOS/firefox-bin",
-                "platform": "MAC",
-                "maxInstances": 1,
-                "seleniumProtocol": "WebDriver"
-            }, {
-                "browserName": "firefox",
                 "version": "10",
                 "firefox_binary": "/Applications/Firefox 10.app/Contents/MacOS/firefox-bin",
-                "platform": "MAC",
-                "maxInstances": 1,
-                "seleniumProtocol": "WebDriver"
-            }, {
-                "browserName": "firefox",
-                "version": "11",
-                "firefox_binary": "/Applications/Firefox 11.app/Contents/MacOS/firefox-bin",
                 "platform": "MAC",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
