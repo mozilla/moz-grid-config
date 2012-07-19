@@ -2,34 +2,6 @@
     "capabilities":
         [
             {
-                "browserName": "Firefox 10 on Mac OS X",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
-                "browserName": "Firefox 12 on Mac OS X",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
-                "browserName": "Firefox 13 on Mac OS X",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
-                "browserName": "Firefox 14 on Mac OS X",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
-                "browserName": "Firefox Beta on Mac OS X",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
-                "browserName": "Firefox Aurora on Mac OS X",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
-                "browserName": "Firefox Nightly on Mac OS X",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
                 "browserName": "firefox",
                 "version": "10",
                 "firefox_binary": "/Applications/Firefox 10.app/Contents/MacOS/firefox-bin",
