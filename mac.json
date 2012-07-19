@@ -14,6 +14,10 @@
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
             }, {
+                "browserName": "Firefox 14 on Mac OS X",
+                "maxInstances": 5,
+                "seleniumProtocol": "Selenium"
+            }, {
                 "browserName": "firefox",
                 "version": "10",
                 "firefox_binary": "/Applications/Firefox 10.app/Contents/MacOS/firefox-bin",
@@ -31,6 +35,13 @@
                 "browserName": "firefox",
                 "version": "13",
                 "firefox_binary": "/Applications/Firefox 13.app/Contents/MacOS/firefox-bin",
+                "platform": "MAC",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
+            }, {
+                "browserName": "firefox",
+                "version": "14",
+                "firefox_binary": "/Applications/Firefox 14.app/Contents/MacOS/firefox-bin",
                 "platform": "MAC",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
