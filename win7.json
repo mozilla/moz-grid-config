@@ -1,24 +1,20 @@
 {
     "capabilities":
         [
-            {
-                "browserName": "Firefox 3.6 on Windows 7",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
+           {
                 "browserName": "Firefox 10 on Windows 7",
-                "maxInstances": 5,
-                "seleniumProtocol": "Selenium"
-            }, {
-                "browserName": "Firefox 11 on Windows 7",
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
             }, {
                 "browserName": "Firefox 12 on Windows 7",
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
-            },{
+            }, {
                 "browserName": "Firefox 13 on Windows 7",
+                "maxInstances": 5,
+                "seleniumProtocol": "Selenium"
+            }, {
+                "browserName": "Firefox 14 on Windows 7",
                 "maxInstances": 5,
                 "seleniumProtocol": "Selenium"
             }, {
@@ -27,22 +23,8 @@
                 "seleniumProtocol": "Selenium"
             }, {
                 "browserName": "firefox",
-                "version": "3.6",
-                "firefox_binary": "C:/Program Files/Mozilla Firefox 3.6/firefox.exe",
-                "platform": "WINDOWS",
-                "maxInstances": 1,
-                "seleniumProtocol": "WebDriver"
-            }, {
-                "browserName": "firefox",
                 "version": "10",
                 "firefox_binary": "C:/Program Files/Mozilla Firefox 10/firefox.exe",
-                "platform": "WINDOWS",
-                "maxInstances": 1,
-                "seleniumProtocol": "WebDriver"
-            }, {
-                "browserName": "firefox",
-                "version": "11",
-                "firefox_binary": "C:/Program Files/Mozilla Firefox 11/firefox.exe",
                 "platform": "WINDOWS",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
@@ -53,10 +35,17 @@
                 "platform": "WINDOWS",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
-            },{
+            }, {
                 "browserName": "firefox",
                 "version": "13",
                 "firefox_binary": "C:/Program Files/Mozilla Firefox 13/firefox.exe",
+                "platform": "WINDOWS",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
+            }, {
+                "browserName": "firefox",
+                "version": "14",
+                "firefox_binary": "C:/Program Files/Mozilla Firefox 14/firefox.exe",
                 "platform": "WINDOWS",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
