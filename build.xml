@@ -99,8 +99,6 @@
           failonerror="true">
       <arg value="-role"/>
       <arg value="hub"/>
-      <arg value="-grid1Yml"/>
-      <arg value="grid_configuration.yml"/>
       <arg value="-hubConfig"/>
       <arg value="hub_configuration.json"/>
     </java>
