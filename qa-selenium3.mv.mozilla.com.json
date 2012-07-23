@@ -39,14 +39,14 @@
             }, {
                 "browserName": "firefox",
                 "version": "aurora",
-                "firefox_binary": "/Applications/Aurora.app/Contents/MacOS/firefox-bin",
+                "firefox_binary": "/Applications/Firefox Aurora.app/Contents/MacOS/firefox-bin",
                 "platform": "MAC",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
             }, {
                 "browserName": "firefox",
                 "version": "nightly",
-                "firefox_binary": "/Applications/Nightly.app/Contents/MacOS/firefox-bin",
+                "firefox_binary": "/Applications/Firefox Nightly.app/Contents/MacOS/firefox-bin",
                 "platform": "MAC",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
