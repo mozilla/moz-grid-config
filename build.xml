@@ -108,17 +108,17 @@
           description="Launch Selenium Node"
           depends="fetch-dependencies, set-config, set-hosts">
     <java classpathref="selenium.classpath"
-              classname="org.openqa.grid.selenium.GridLauncher"
-              fork="true"
-              failonerror="true">
-            <arg value="-role"/>
-            <arg value="node"/>
-            <arg value="-hub"/>
-            <arg value="http://${hub.host}:${hub.port}/grid/register"/>
-            <arg value="-host"/>
-            <arg value="${node.host}"/>
-            <arg value="-nodeConfig"/>
-            <arg value="${node.configuration.file}"/>
+          classname="org.openqa.grid.selenium.GridLauncher"
+          fork="true"
+          failonerror="true">
+      <arg value="-role"/>
+      <arg value="node"/>
+      <arg value="-hub"/>
+      <arg value="http://${hub.host}:${hub.port}/grid/register"/>
+      <arg value="-host"/>
+      <arg value="${node.host}"/>
+      <arg value="-nodeConfig"/>
+      <arg value="${node.configuration.file}"/>
     </java>
   </target>
 </project>
