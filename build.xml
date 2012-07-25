@@ -106,54 +106,19 @@
 
   <target name="launch-node"
           description="Launch Selenium Node"
-          depends="fetch-dependencies, set-config, set-hosts, launch-node-with-custom-profile, launch-node-without-custom-profile"/>
-
-  <target name="check-for-custom-profile">
-    <condition property="use.custom.profile">
-      <not>
-        <equals arg1="${custom.firefox.profile}" arg2="" />
-      </not>
-    </condition>
-  </target>
-
-  <target name="launch-node-with-custom-profile"
-          depends="check-for-custom-profile"
-          if="use.custom.profile">
+          depends="fetch-dependencies, set-config, set-hosts">
     <java classpathref="selenium.classpath"
-          classname="org.openqa.grid.selenium.GridLauncher"
-          fork="true"
-          failonerror="true">
-      <arg value="-role"/>
-      <arg value="node"/>
-      <arg value="-hub"/>
-      <arg value="http://${hub.host}:${hub.port}/grid/register"/>
-      <arg value="-host"/>
-      <arg value="${node.host}"/>
-      <arg value="-nodeConfig"/>
-      <arg value="${node.configuration.file}"/>
-      <arg value="-firefoxProfileTemplate"/>
-      <arg value="${basedir}${file.separator}firefoxprofiles${file.separator}${custom.firefox.profile}"/>
-      <arg line="${rc.arguments}"/>
+              classname="org.openqa.grid.selenium.GridLauncher"
+              fork="true"
+              failonerror="true">
+            <arg value="-role"/>
+            <arg value="node"/>
+            <arg value="-hub"/>
+            <arg value="http://${hub.host}:${hub.port}/grid/register"/>
+            <arg value="-host"/>
+            <arg value="${node.host}"/>
+            <arg value="-nodeConfig"/>
+            <arg value="${node.configuration.file}"/>
     </java>
   </target>
-
-  <target name="launch-node-without-custom-profile"
-          depends="check-for-custom-profile"
-          unless="use.custom.profile">
-    <java classpathref="remote-control.classpath"
-          classname="org.openqa.grid.selenium.GridLauncher"
-          fork="true"
-          failonerror="true">
-      <arg value="-role"/>
-      <arg value="node"/>
-      <arg value="-hub"/>
-      <arg value="http://${hub.host}:${hub.port}/grid/register"/>
-      <arg value="-host"/>
-      <arg value="${node.host}"/>
-      <arg value="-nodeConfig"/>
-      <arg value="${node.configuration.file}"/>
-      <arg line="${rc.arguments}"/>
-    </java>
-  </target>
-
 </project>
