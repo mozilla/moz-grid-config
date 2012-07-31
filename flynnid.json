@@ -1,0 +1,39 @@
+{
+    "hub": {
+        "host": "qa-selenium.mv.mozilla.com",
+        "port": 4444
+    },
+    "nodes": [{
+        "host": "10.250.3.15",
+        "port": 8080,
+        "browser": {
+            "name": "android",
+            "version": "4"
+        },
+        "platform": "ANDROID"
+    },{
+        "host": "10.250.5.90",
+        "port": 8080,
+        "browser": {
+            "name": "android",
+            "version": "4"
+        },
+        "platform": "ANDROID"
+    },{
+        "host": "10.250.1.25",
+        "port": 8080,
+        "browser": {
+            "name": "android",
+            "version": "4"
+        },
+        "platform": "ANDROID"
+    },{
+        "host": "10.250.1.26",
+        "port": 8080,
+        "browser": {
+            "name": "android",
+            "version": "4"
+        },
+        "platform": "ANDROID"
+    }]
+}
