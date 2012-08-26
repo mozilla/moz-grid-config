@@ -4,7 +4,7 @@
         "port": 4444
     },
     "nodes": [{
-        "host": "10.250.3.15",
+        "host": "10.250.1.27",
         "port": 8080,
         "browser": {
             "name": "android",
@@ -12,7 +12,7 @@
         },
         "platform": "ANDROID"
     },{
-        "host": "10.250.5.90",
+        "host": "10.250.1.28",
         "port": 8080,
         "browser": {
             "name": "android",
