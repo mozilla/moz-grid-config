@@ -10,13 +10,6 @@
                 "seleniumProtocol": "WebDriver"
             }, {
                 "browserName": "firefox",
-                "version": "12",
-                "firefox_binary": "C:/Program Files/Mozilla Firefox 12/firefox.exe",
-                "platform": "WINDOWS",
-                "maxInstances": 1,
-                "seleniumProtocol": "WebDriver"
-            }, {
-                "browserName": "firefox",
                 "version": "13",
                 "firefox_binary": "C:/Program Files/Mozilla Firefox 13/firefox.exe",
                 "platform": "WINDOWS",
