@@ -50,6 +50,11 @@
                 "platform": "MAC",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
+            }, {
+                "browserName": "opera",
+                "platform": "MAC",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
             }
         ],
     "configuration": {}
