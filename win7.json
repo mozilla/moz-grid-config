@@ -35,6 +35,11 @@
                 "platform": "WINDOWS",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
+            }, {
+                "browserName": "opera",
+                "platform": "WINDOWS",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
             }
         ],
     "configuration": {}
