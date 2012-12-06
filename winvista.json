@@ -23,6 +23,13 @@
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
             }, {
+                "browserName": "firefox",
+                "version": "17",
+                "firefox_binary": "C:/Program Files/Mozilla Firefox 17/firefox.exe",
+                "platform": "WINDOWS",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
+            }, {
                 "browserName": "internet explorer",
                 "version": "8",
                 "platform": "WINDOWS",
