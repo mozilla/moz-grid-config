@@ -10,13 +10,6 @@
                 "seleniumProtocol": "WebDriver"
             }, {
                 "browserName": "firefox",
-                "version": "16",
-                "firefox_binary": "/Applications/Firefox 16.app/Contents/MacOS/firefox-bin",
-                "platform": "MAC",
-                "maxInstances": 1,
-                "seleniumProtocol": "WebDriver"
-            }, {
-                "browserName": "firefox",
                 "version": "17",
                 "firefox_binary": "/Applications/Firefox 17.app/Contents/MacOS/firefox-bin",
                 "platform": "MAC",
