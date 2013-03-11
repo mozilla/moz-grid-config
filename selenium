@@ -1,0 +1,54 @@
+#!/bin/bash
+#
+#chkconfig: 35 90 12
+#description: start,stop or restart Selenium Grid hub
+#
+# Get function from functions library
+. /etc/init.d/functions
+#start the service 
+start() {
+    echo $"Starting Selenium hub"
+    cd /webqa/moz-grid-config && ant launch-hub >> server.logs &
+    echo $"Selenium grid server started"
+
+}
+#Stop the service
+stop() {
+    out=$(ps --no-headers -f | egrep -e '(/usr/lib/jvm/java/bin/java -classpath /usr/share/java/ant.jar| /usr/lib/jvm/java-1.6.0-sun-1.6.0.22.x86_64/jre/bin/java -classpath /webqa/moz-grid-config:/webqa/moz-grid-config/lib/selenium-server-standalone-2.21.0.jar:/usr/share/java/ant.jar:/usr/share/java/ant-launcher.jar:/usr/share/java/jaxp_parser_impl.jar:/usr/share/java/xml-commons-apis.jar:/usr/lib/jvm/java/lib/tools.jar:/usr/share/ant/lib/ant-launcher.jar:/usr/share/ant/lib/ant-bootstrap.jar:/usr/share/ant/lib/ant.jar org.openqa.grid.selenium.GridLauncher -role hub -grid1Yml grid_configuration.yml -hubConfig hub_configuration.json)' | grep -c .)
+    if [[ $out -gt 0 ]]; then
+        for i in $(ps ax  | egrep -e '(/usr/lib/jvm/java/bin/java -classpath /usr/share/java/ant.jar | /usr/lib/jvm/java-1.6.0-sun-1.6.0.22.x86_64/jre/bin/java -classpath /webqa/moz-grid-config:/webqa/moz-grid-config/lib/selenium-server-standalone-2.21.0.jar:/usr/share/java/ant.jar:/usr/share/java/ant-launcher.jar:/usr/share/java/jaxp_parser_impl.jar:/usr/share/java/xml-commons-apis.jar:/usr/lib/jvm/java/lib/tools.jar:/usr/share/ant/lib/ant-launcher.jar:/usr/share/ant/lib/ant-bootstrap.jar:/usr/share/ant/lib/ant.jar org.openqa.grid.selenium.GridLauncher -role hub -grid1Yml grid_configuration.yml -hubConfig hub_configuration.json)' | grep -v grep  | cut  -c1-5); do kill -9 $i; done
+        echo $"Stopped the Selenium Grid hub"
+    else 
+        echo $"Error stopping Selenium grid hub"
+    fi
+    
+}
+status() {
+    out=$(ps --no-headers -f | egrep -e '(/usr/lib/jvm/java/bin/java -classpath /usr/share/java/ant.jar | /usr/lib/jvm/java-1.6.0-sun-1.6.0.22.x86_64/jre/bin/java -classpath /webqa/moz-grid-config:/webqa/moz-grid-config/lib/selenium-server-standalone-2.21.0.jar:/usr/share/java/ant.jar:/usr/share/java/ant-launcher.jar:/usr/share/java/jaxp_parser_impl.jar:/usr/share/java/xml-commons-apis.jar:/usr/lib/jvm/java/lib/tools.jar:/usr/share/ant/lib/ant-launcher.jar:/usr/share/ant/lib/ant-bootstrap.jar:/usr/share/ant/lib/ant.jar org.openqa.grid.selenium.GridLauncher -role hub -grid1Yml grid_configuration.yml -hubConfig hub_configuration.json)' | grep -v grep | grep -c .)
+    if [[ $out -gt 0 ]]; then
+        echo $"The Selenium Grid hub is started"
+    else
+        echo $"The Selenium Grid hub is not started"
+    fi
+} 
+
+### logic ###
+case "$1" in 
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status  
+        ;;
+    restart|reload|condrestart)
+        stop
+        start
+        ;;
+    *)
+        echo $"Usage: $0 {start|stop|restart|reload|status}"
+        exit 1
+esac
+exit 0
