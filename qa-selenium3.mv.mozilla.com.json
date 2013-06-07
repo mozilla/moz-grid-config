@@ -24,6 +24,13 @@
                 "seleniumProtocol": "WebDriver"
             }, {
                 "browserName": "firefox",
+                "version": "21",
+                "firefox_binary": "/Applications/Firefox 21.app/Contents/MacOS/firefox-bin",
+                "platform": "MAC",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
+            }, {
+                "browserName": "firefox",
                 "version": "beta",
                 "firefox_binary": "/Applications/Firefox Beta.app/Contents/MacOS/firefox-bin",
                 "platform": "MAC",
