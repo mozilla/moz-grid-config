@@ -10,13 +10,6 @@
                 "seleniumProtocol": "WebDriver"
             }, {
                 "browserName": "firefox",
-                "version": "19",
-                "firefox_binary": "/Applications/Firefox 19.app/Contents/MacOS/firefox-bin",
-                "platform": "MAC",
-                "maxInstances": 1,
-                "seleniumProtocol": "WebDriver"
-            }, {
-                "browserName": "firefox",
                 "version": "20",
                 "firefox_binary": "/Applications/Firefox 20.app/Contents/MacOS/firefox-bin",
                 "platform": "MAC",
