@@ -10,15 +10,15 @@
                 "seleniumProtocol": "WebDriver"
             }, {
                 "browserName": "firefox",
-                "version": "23",
-                "firefox_binary": "C:/Program Files/Mozilla Firefox 23/firefox.exe",
+                "version": "24",
+                "firefox_binary": "C:/Program Files/Mozilla Firefox 24/firefox.exe",
                 "platform": "WINDOWS",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
             }, {
                 "browserName": "firefox",
-                "version": "24",
-                "firefox_binary": "C:/Program Files/Mozilla Firefox 24/firefox.exe",
+                "version": "25",
+                "firefox_binary": "C:/Program Files/Mozilla Firefox 25/firefox.exe",
                 "platform": "WINDOWS",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
