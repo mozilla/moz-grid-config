@@ -3,13 +3,6 @@
         [
             {
                 "browserName": "firefox",
-                "version": "17",
-                "firefox_binary": "/Applications/Firefox 17.app/Contents/MacOS/firefox-bin",
-                "platform": "MAC",
-                "maxInstances": 1,
-                "seleniumProtocol": "WebDriver"
-            }, {
-                "browserName": "firefox",
                 "version": "24",
                 "firefox_binary": "/Applications/Firefox 24.app/Contents/MacOS/firefox-bin",
                 "platform": "MAC",
@@ -19,6 +12,13 @@
                 "browserName": "firefox",
                 "version": "25",
                 "firefox_binary": "/Applications/Firefox 25.app/Contents/MacOS/firefox-bin",
+                "platform": "MAC",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
+            }, {
+                "browserName": "firefox",
+                "version": "26",
+                "firefox_binary": "/Applications/Firefox 26.app/Contents/MacOS/firefox-bin",
                 "platform": "MAC",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
