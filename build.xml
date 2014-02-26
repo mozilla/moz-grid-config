@@ -9,14 +9,14 @@
 
   <target name="fetch-dependencies">
     <mkdir dir="lib"/>
-    <get src="http://selenium.googlecode.com/files/selenium-server-standalone-${selenium.version}.jar"
+    <get src="http://selenium-release.storage.googleapis.com/${selenium.version.major}/selenium-server-standalone-${selenium.version.major}.${selenium.version.minor}.jar"
          dest="lib"
          usetimestamp="true"
          ignoreerrors="yes"/>
 
-    <available file="lib/selenium-server-standalone-${selenium.version}.jar" property="selenium.present"/>
+    <available file="lib/selenium-server-standalone-${selenium.version.major}.${selenium.version.minor}.jar" property="selenium.present"/>
 
-    <fail unless="selenium.present" message="Unable to locate lib/selenium-server-standalone-${selenium.version}.jar"/>
+    <fail unless="selenium.present" message="Unable to locate lib/selenium-server-standalone-${selenium.version.major}.${selenium.version.minor}.jar"/>
   </target>
 
   <target name="set-config">
@@ -80,7 +80,7 @@
   <path id="selenium.classpath">
     <pathelement path="${basedir}/"/>
     <fileset dir="${basedir}/lib">
-      <include name="selenium-server-standalone-${selenium.version}.jar"/>
+      <include name="selenium-server-standalone-${selenium.version.major}.${selenium.version.minor}.jar"/>
     </fileset>
     <pathelement path="${java.class.path}/"/>
   </path>
