@@ -29,7 +29,7 @@
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
             }, {
-                "browserName": "opera",
+                "browserName": "chrome",
                 "platform": "WINDOWS",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
