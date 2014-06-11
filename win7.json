@@ -24,7 +24,7 @@
                 "seleniumProtocol": "WebDriver"
             }, {
                 "browserName": "internet explorer",
-                "version": "8",
+                "version": "11",
                 "platform": "WINDOWS",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
