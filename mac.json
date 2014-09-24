@@ -10,15 +10,15 @@
                 "seleniumProtocol": "WebDriver"
             }, {
                 "browserName": "firefox",
-                "version": "27",
-                "firefox_binary": "/Applications/Firefox 27.app/Contents/MacOS/firefox-bin",
+                "version": "31",
+                "firefox_binary": "/Applications/Firefox 31.app/Contents/MacOS/firefox-bin",
                 "platform": "MAC",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
             }, {
                 "browserName": "firefox",
-                "version": "28",
-                "firefox_binary": "/Applications/Firefox 28.app/Contents/MacOS/firefox-bin",
+                "version": "32",
+                "firefox_binary": "/Applications/Firefox 32.app/Contents/MacOS/firefox-bin",
                 "platform": "MAC",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
