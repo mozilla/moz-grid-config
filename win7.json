@@ -3,13 +3,6 @@
         [
            {
                 "browserName": "firefox",
-                "version": "24",
-                "firefox_binary": "C:/Program Files (x86)/Mozilla Firefox 24/firefox.exe",
-                "platform": "WINDOWS",
-                "maxInstances": 1,
-                "seleniumProtocol": "WebDriver"
-            }, {
-                "browserName": "firefox",
                 "version": "31",
                 "firefox_binary": "C:/Program Files (x86)/Mozilla Firefox 31/firefox.exe",
                 "platform": "WINDOWS",
@@ -19,6 +12,13 @@
                 "browserName": "firefox",
                 "version": "32",
                 "firefox_binary": "C:/Program Files (x86)/Mozilla Firefox 32/firefox.exe",
+                "platform": "WINDOWS",
+                "maxInstances": 1,
+                "seleniumProtocol": "WebDriver"
+            }, {
+                "browserName": "firefox",
+                "version": "33",
+                "firefox_binary": "C:/Program Files (x86)/Mozilla Firefox 33/firefox.exe",
                 "platform": "WINDOWS",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
