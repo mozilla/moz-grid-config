@@ -3,22 +3,22 @@
         [
            {
                 "browserName": "firefox",
-                "version": "31",
-                "firefox_binary": "C:/Program Files/Mozilla Firefox 31/firefox.exe",
+                "version": "34",
+                "firefox_binary": "C:/Program Files/Mozilla Firefox 34/firefox.exe",
                 "platform": "WINDOWS",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
             }, {
                 "browserName": "firefox",
-                "version": "32",
-                "firefox_binary": "C:/Program Files/Mozilla Firefox 32/firefox.exe",
+                "version": "35",
+                "firefox_binary": "C:/Program Files/Mozilla Firefox 35/firefox.exe",
                 "platform": "WINDOWS",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
             }, {
                 "browserName": "firefox",
-                "version": "33",
-                "firefox_binary": "C:/Program Files/Mozilla Firefox 33/firefox.exe",
+                "version": "36",
+                "firefox_binary": "C:/Program Files/Mozilla Firefox 36/firefox.exe",
                 "platform": "WINDOWS",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
