@@ -35,35 +35,18 @@
   </target>
 
   <target name="set-hosts">
-    <!-- nodes that can't be addressed by hostname -->
-    <condition property="isNotAddressable">
-      <matches pattern="${nonaddressable.hostnames.regex}"
-               string="${env.HOSTNAME}"
-               casesensitive="false"/>
-    </condition>
-
-    <!-- production nodes -->
-    <condition property="isProduction">
-      <matches pattern="${production.hostnames.regex}"
-               string="${env.HOSTNAME}"
-               casesensitive="false"/>
-    </condition>
-
-    <!-- if this is a production node set the production hub host -->
+    <!-- set the production hub host for the production environment -->
     <condition property="hub.host" value="${production.hub.host}">
-      <isset property="isProduction"/>
+      <matches pattern="^production$" string="${env}"/>
+    </condition>
+
+    <!-- set the staging hub host for the staging environment -->
+    <condition property="hub.host" value="${staging.hub.host}">
+      <matches pattern="^staging$" string="${env}"/>
     </condition>
 
     <!-- otherwise set to localhost (unless overridden) -->
     <property name="hub.host" value="localhost"/>
-
-    <!-- if this is a production node that can't be addressed then use IP -->
-    <condition property="node.host" value="IP">
-      <and>
-        <isset property="isProduction"/>
-        <isset property="isNotAddressable"/>
-      </and>
-    </condition>
 
     <!-- if the hub is running on localhost then so must the node be -->
     <condition property="node.host" value="localhost">
