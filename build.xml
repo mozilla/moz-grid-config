@@ -111,6 +111,8 @@
           classname="org.openqa.grid.selenium.GridLauncher"
           fork="true"
           failonerror="true">
+      <sysproperty key="http.nonProxyHosts"
+                   value="${hub.host}"/>
       <arg value="-role"/>
       <arg value="node"/>
       <arg value="-id"/>
@@ -131,6 +133,8 @@
           classname="org.openqa.grid.selenium.GridLauncher"
           fork="true"
           failonerror="true">
+      <sysproperty key="http.nonProxyHosts"
+                   value="${hub.host}"/>
       <arg value="-role"/>
       <arg value="node"/>
       <arg value="-id"/>
