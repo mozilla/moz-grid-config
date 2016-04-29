@@ -3,15 +3,15 @@
         [
            {
                 "browserName": "firefox",
-                "version": "44",
-                "firefox_binary": "C:/Program Files (x86)/Mozilla Firefox 44/firefox.exe",
+                "version": "45",
+                "firefox_binary": "C:/Program Files (x86)/Mozilla Firefox 45/firefox.exe",
                 "platform": "WINDOWS",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
             }, {
                 "browserName": "firefox",
-                "version": "45",
-                "firefox_binary": "C:/Program Files (x86)/Mozilla Firefox 45/firefox.exe",
+                "version": "46",
+                "firefox_binary": "C:/Program Files (x86)/Mozilla Firefox 46/firefox.exe",
                 "platform": "WINDOWS",
                 "maxInstances": 1,
                 "seleniumProtocol": "WebDriver"
