@@ -1,4 +1,4 @@
-<project name="selenium-grid" default="launch-node" basedir=".">
+<project name="selenium-grid" default="launch-node" basedir="." xmlns:if="ant:if" xmlns:unless="ant:unless">
 
   <property environment="env"/>
   <exec executable="hostname" osfamily="unix" failifexecutionfails="false" outputproperty="env.COMPUTERNAME"/>
@@ -17,6 +17,50 @@
     <available file="lib/selenium-server-standalone-${selenium.version.major}.${selenium.version.minor}${selenium.version.suffix}.jar" property="selenium.present"/>
 
     <fail unless="selenium.present" message="Unable to locate lib/selenium-server-standalone-${selenium.version.major}.${selenium.version.minor}${selenium.version.suffix}.jar"/>
+  </target>
+
+  <target name="geckodriver">
+    <condition property="isWindows" value="true">
+      <os family="windows" />
+    </condition>
+    <condition property="geckodriver.platform" value="macos">
+      <os family="mac" />
+    </condition>
+    <condition property="geckodriver.platform" value="win64">
+      <isset property="isWindows" />
+    </condition>
+    <condition property="geckodriver.platform" value="linux64">
+      <os family="unix" />
+    </condition>
+    <condition property="geckodriver.archive" value="tar.gz">
+      <not>
+        <isset property="isWindows" />
+      </not>
+    </condition>
+    <condition property="geckodriver.archive" value="zip">
+      <isset property="isWindows" />
+    </condition>
+    <property name="geckodriver.filename" value="geckodriver-v${geckodriver.version}-${geckodriver.platform}"/>
+    <get src="https://github.com/mozilla/geckodriver/releases/download/v${geckodriver.version}/${geckodriver.filename}.${geckodriver.archive}" dest="lib" usetimestamp="true" ignoreerrors="yes"/>
+    <gunzip src="lib/${geckodriver.filename}.${geckodriver.archive}" dest="lib" unless:set="isWindows"/>
+    <unzip src="lib/${geckodriver.filename}.${geckodriver.archive}" dest="lib/${geckodriver.filename}" if:set="isWindows"/>
+    <untar src="lib/${geckodriver.filename}.tar" dest="lib/${geckodriver.filename}" unless:set="isWindows"/>
+    <delete file="lib/${geckodriver.filename}.tar" unless:set="isWindows"/>
+    <condition property="geckodriver.binary" value="lib/${geckodriver.filename}/geckodriver">
+      <not>
+        <isset property="isWindows" />
+      </not>
+    </condition>
+    <condition property="geckodriver.binary" value="lib/${geckodriver.filename}/geckodriver.exe">
+      <isset property="isWindows" />
+    </condition>
+    <chmod file="lib/${geckodriver.filename}/geckodriver" perm="+x" unless:true="isWindows"/>
+
+    <echo>geckodriver.version: ${geckodriver.version}</echo>
+    <echo>geckodriver.platform: ${geckodriver.platform}</echo>
+    <echo>geckodriver.archive: ${geckodriver.archive}</echo>
+    <echo>geckodriver.filename: ${geckodriver.filename}</echo>
+    <echo>geckodriver.binary: ${geckodriver.binary}</echo>
   </target>
 
   <target name="set-config">
@@ -106,13 +150,14 @@
 
   <target name="launch-node"
           description="Launch Selenium Node"
-          depends="fetch-dependencies, set-config, set-hosts">
+          depends="fetch-dependencies, geckodriver, set-config, set-hosts">
     <java classpathref="selenium.classpath"
           classname="org.openqa.grid.selenium.GridLauncherV3"
           fork="true"
           failonerror="true">
-      <sysproperty key="http.nonProxyHosts"
-                   value="${hub.host}"/>
+      <sysproperty key="http.nonProxyHosts" value="${hub.host}"/>
+      <sysproperty key="webdriver.gecko.driver" value="${geckodriver.binary}"/>
+      <sysproperty key="webdriver.firefox.marionette" value="false"/>
       <arg value="-role"/>
       <arg value="node"/>
       <arg value="-id"/>
@@ -128,13 +173,14 @@
 
   <target name="launch-node-debug"
           description="Launch Selenium Node in debug mode"
-          depends="fetch-dependencies, set-config, set-hosts">
+          depends="fetch-dependencies, geckodriver, set-config, set-hosts">
     <java classpathref="selenium.classpath"
           classname="org.openqa.grid.selenium.GridLauncherV3"
           fork="true"
           failonerror="true">
-      <sysproperty key="http.nonProxyHosts"
-                   value="${hub.host}"/>
+      <sysproperty key="http.nonProxyHosts" value="${hub.host}"/>
+      <sysproperty key="webdriver.gecko.driver" value="${geckodriver.binary}"/>
+      <sysproperty key="webdriver.firefox.marionette" value="false"/>
       <arg value="-role"/>
       <arg value="node"/>
       <arg value="-id"/>
