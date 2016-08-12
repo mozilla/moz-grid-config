@@ -19,6 +19,25 @@
     <fail unless="selenium.present" message="Unable to locate lib/selenium-server-standalone-${selenium.version.major}.${selenium.version.minor}${selenium.version.suffix}.jar"/>
   </target>
 
+  <target name="geckodriver">
+    <condition property="geckodriver.platform" value="macos">
+      <contains string="${os.name}" substring="mac" casesensitive="false"/>
+    </condition>
+    <condition property="geckodriver.platform" value="win64">
+      <contains string="${os.name}" substring="windows" casesensitive="false"/>
+    </condition>
+    <condition property="geckodriver.platform" value="linux64">
+      <contains string="${os.name}" substring="linux" casesensitive="false"/>
+    </condition>
+    <property name="geckodriver.filename" value="geckodriver-v${geckodriver.version}-${geckodriver.platform}"/>
+    <get src="https://github.com/mozilla/geckodriver/releases/download/v${geckodriver.version}/${geckodriver.filename}.tar.gz" dest="lib" usetimestamp="true" ignoreerrors="yes"/>
+    <gunzip src="lib/${geckodriver.filename}.tar.gz" dest="lib/${geckodriver.filename}.tar"/>
+    <delete file="lib/${geckodriver.filename}.tar.gz"/>
+    <untar src="lib/${geckodriver.filename}.tar" dest="lib/${geckodriver.filename}"/>
+    <delete file="lib/${geckodriver.filename}.tar"/>
+    <chmod file="lib/${geckodriver.filename}/geckodriver" perm="+x"/>
+  </target>
+
   <target name="set-config">
     <echo>os.name: ${os.name}</echo>
     <condition property="node.configuration.file" value="mac.json">
@@ -106,13 +125,14 @@
 
   <target name="launch-node"
           description="Launch Selenium Node"
-          depends="fetch-dependencies, set-config, set-hosts">
+          depends="fetch-dependencies, geckodriver, set-config, set-hosts">
     <java classpathref="selenium.classpath"
           classname="org.openqa.grid.selenium.GridLauncherV3"
           fork="true"
           failonerror="true">
-      <sysproperty key="http.nonProxyHosts"
-                   value="${hub.host}"/>
+      <sysproperty key="http.nonProxyHosts" value="${hub.host}"/>
+      <sysproperty key="webdriver.gecko.driver" value="lib/${geckodriver.filename}/geckodriver"/>
+      <sysproperty key="webdriver.firefox.marionette" value="false"/>
       <arg value="-role"/>
       <arg value="node"/>
       <arg value="-id"/>
@@ -128,13 +148,14 @@
 
   <target name="launch-node-debug"
           description="Launch Selenium Node in debug mode"
-          depends="fetch-dependencies, set-config, set-hosts">
+          depends="fetch-dependencies, geckodriver, set-config, set-hosts">
     <java classpathref="selenium.classpath"
           classname="org.openqa.grid.selenium.GridLauncherV3"
           fork="true"
           failonerror="true">
-      <sysproperty key="http.nonProxyHosts"
-                   value="${hub.host}"/>
+      <sysproperty key="http.nonProxyHosts" value="${hub.host}"/>
+      <sysproperty key="webdriver.gecko.driver" value="lib/${geckodriver.filename}/geckodriver"/>
+      <sysproperty key="webdriver.firefox.marionette" value="false"/>
       <arg value="-role"/>
       <arg value="node"/>
       <arg value="-id"/>
