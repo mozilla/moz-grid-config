@@ -56,6 +56,12 @@
       <isset property="isWindows" />
     </condition>
     <chmod file="lib/${geckodriver.filename}/geckodriver" perm="+x" unless:true="isWindows"/>
+
+    <echo>geckodriver.version: ${geckodriver.version}</echo>
+    <echo>geckodriver.platform: ${geckodriver.platform}</echo>
+    <echo>geckodriver.archive: ${geckodriver.archive}</echo>
+    <echo>geckodriver.filename: ${geckodriver.filename}</echo>
+    <echo>geckodriver.binary: ${geckodriver.binary}</echo>
   </target>
 
   <target name="set-config">
@@ -151,7 +157,7 @@
           fork="true"
           failonerror="true">
       <sysproperty key="http.nonProxyHosts" value="${hub.host}"/>
-      <sysproperty key="webdriver.gecko.driver" value="lib/${geckodriver.filename}/geckodriver"/>
+      <sysproperty key="webdriver.gecko.driver" value="${geckodriver.binary}"/>
       <sysproperty key="webdriver.firefox.marionette" value="false"/>
       <arg value="-role"/>
       <arg value="node"/>
@@ -174,7 +180,7 @@
           fork="true"
           failonerror="true">
       <sysproperty key="http.nonProxyHosts" value="${hub.host}"/>
-      <sysproperty key="webdriver.gecko.driver" value="lib/${geckodriver.filename}/geckodriver"/>
+      <sysproperty key="webdriver.gecko.driver" value="${geckodriver.binary}"/>
       <sysproperty key="webdriver.firefox.marionette" value="false"/>
       <arg value="-role"/>
       <arg value="node"/>
