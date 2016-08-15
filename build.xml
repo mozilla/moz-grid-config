@@ -42,11 +42,11 @@
     </condition>
     <property name="geckodriver.filename" value="geckodriver-v${geckodriver.version}-${geckodriver.platform}"/>
     <get src="https://github.com/mozilla/geckodriver/releases/download/v${geckodriver.version}/${geckodriver.filename}.${geckodriver.archive}" dest="lib" usetimestamp="true" ignoreerrors="yes"/>
-    <gunzip src="lib/${geckodriver.filename}.${geckodriver.archive}" dest="lib" unless:true="isWindows"/>
-    <unzip src="lib/${geckodriver.filename}.${geckodriver.archive}" dest="lib" if:true="isWindows"/>
+    <gunzip src="lib/${geckodriver.filename}.${geckodriver.archive}" dest="lib" unless:set="isWindows"/>
+    <unzip src="lib/${geckodriver.filename}.${geckodriver.archive}" dest="lib" if:set="isWindows"/>
     <delete file="lib/${geckodriver.filename}.${geckodriver.archive}"/>
-    <untar src="lib/${geckodriver.filename}.tar" dest="lib/${geckodriver.filename}" unless:true="isWindows"/>
-    <delete file="lib/${geckodriver.filename}.tar" unless:true="isWindows"/>
+    <untar src="lib/${geckodriver.filename}.tar" dest="lib/${geckodriver.filename}" unless:set="isWindows"/>
+    <delete file="lib/${geckodriver.filename}.tar" unless:set="isWindows"/>
     <condition property="geckodriver.binary" value="lib/${geckodriver.filename}/geckodriver">
       <not>
         <isset property="isWindows" />
