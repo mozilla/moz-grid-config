@@ -120,7 +120,7 @@
   <target name="launch-hub"
           description="Launch Selenium Hub"
           depends="fetch-dependencies">
-    <java classname="org.openqa.grid.selenium.GridLauncherV3"
+    <java classname="${selenium.classname}"
           classpathref="selenium.classpath"
           fork="true"
           failonerror="true">
@@ -134,7 +134,7 @@
     <target name="launch-hub-debug"
           description="Launch Selenium Hub in debug mode"
           depends="fetch-dependencies">
-    <java classname="org.openqa.grid.selenium.GridLauncherV3"
+    <java classname="${selenium.classname}"
           classpathref="selenium.classpath"
           fork="true"
           failonerror="true">
@@ -152,7 +152,7 @@
           description="Launch Selenium Node"
           depends="fetch-dependencies, geckodriver, set-config, set-hosts">
     <java classpathref="selenium.classpath"
-          classname="org.openqa.grid.selenium.GridLauncherV3"
+          classname="${selenium.classname}"
           fork="true"
           failonerror="true">
       <sysproperty key="http.nonProxyHosts" value="${hub.host}"/>
@@ -175,7 +175,7 @@
           description="Launch Selenium Node in debug mode"
           depends="fetch-dependencies, geckodriver, set-config, set-hosts">
     <java classpathref="selenium.classpath"
-          classname="org.openqa.grid.selenium.GridLauncherV3"
+          classname="${selenium.classname}"
           fork="true"
           failonerror="true">
       <sysproperty key="http.nonProxyHosts" value="${hub.host}"/>
